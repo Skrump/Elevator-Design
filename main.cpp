@@ -7,6 +7,10 @@
  * Description: This program will improve upon basic elevator 
  * programs. It utilizes a priority queue to process the elevator
  * requests per floor.
+ * Additional: Push to Github on cloud9 with the commands 
+ * git add .
+ * git commit -m "Enter comment here"
+ * git push
  ***************************************************************/
  
 #include <iostream>
