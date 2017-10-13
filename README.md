@@ -5,4 +5,4 @@ Team Members:
 Alejandro Lopez,
 Pierce Tu,
 Dane Godard,
-Kenneth Paw,
+Kenneth Paw
