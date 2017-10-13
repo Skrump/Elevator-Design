@@ -14,6 +14,10 @@
  ***************************************************************/
  
 #include <iostream>
+#include "Elevator.h"
+#include "Floor.h"
+#include "PriorityQueue.h"
+#include "node.h"
 
 using namespace std;
 
