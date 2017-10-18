@@ -1,3 +1,8 @@
+/*
+PriorityQueue header file: This priority queue will be the primary data structure
+for the elevator class.
+*/
+
 #pragma once
 
 #include "node.h"

@@ -1,3 +1,6 @@
+/*
+PriorityQueue's source file
+*/
 #include "PriorityQueue.h"
 
 PriorityQueue::PriorityQueue()
