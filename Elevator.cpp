@@ -3,22 +3,22 @@
 
 Elevator::Elevator()
 {
-	string = "Elevator 0";
+	name = "Elevator 0";
 	currWeight = 0;
 	maxWeight = 0;
 	mostReqFloor = 0;
 	status = true;
-	numFloors();
+	//numFloors();
 }
 
 Elevator::Elevator(string a, double max, double curr, int most, bool stat)
 {
-	string = a;
+	name = a;
 	currWeight = curr;
 	maxWeight = max;
 	mostReqFloor = most;
 	status = stat;
-	numFloors();
+	//numFloors();
 }
 
 string Elevator::getName()

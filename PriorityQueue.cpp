@@ -1,10 +1,13 @@
 #include "PriorityQueue.h"
 
+
 PriorityQueue::PriorityQueue()
 {
     root = new node;
     root->next = 0;
     root->x = 5;
+    currPtr = new node;
+	currPtr = NULL;
 }
 
 PriorityQueue::~PriorityQueue()
@@ -35,7 +38,7 @@ int PriorityQueue::size()
 {
     int size = 0;
     
-	while(linkedList -> node != nullptr) { //this is merely a placeholder condition to attempt to state the idea that this loop will go until the next node in the list is a null node
+	while(currPtr != NULL) { //this is merely a placeholder condition to attempt to state the idea that this loop will go until the next node in the list is a null node
 
 		size++;
 	}
@@ -46,7 +49,7 @@ int PriorityQueue::size()
 node PriorityQueue::front()
 {
     
-	return node;
+	return *currPtr; 
 }
 
 void PriorityQueue::enqueue()

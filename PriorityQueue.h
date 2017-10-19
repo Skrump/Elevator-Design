@@ -5,11 +5,15 @@ for the elevator class.
 
 #pragma once
 
+#include <cstddef>
 #include "node.h"
 
 class PriorityQueue
 {
         node *root;
+        node *currPtr;
+        node temp1;
+        node temp2;
         void linkedList();
     public:
         PriorityQueue();
