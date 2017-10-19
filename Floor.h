@@ -1,14 +1,18 @@
 #pragma once
 
-class floor {
+#include <iostream>
+using namespace std;
 
-	bool pending;
-	int number;
-
+class floor
+{
 public:
-
-	bool request();
-	bool reached();
-	int get_floor();
-	int get_status();
+	floor();
+	floor(int numReq, int prior);
+	int getReq();
+	void addReq(int num);
+	int getPriority();
+	void changePriority(int num);
+private:
+	int requests;
+	int priority;
 };
