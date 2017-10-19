@@ -1,8 +1,9 @@
 #pragma once
 
-class Floor(int numReq, int priority)
+class Floor
 {
   public:
+    Floor(int numReq, int priority);
     void getReq();
     void addReq(int num);
     void changePriority();
