@@ -3,16 +3,23 @@
 #include <iostream>
 using namespace std;
 
-class floor
+class Floor
 {
+private:
+	int requests;
+	int priority;
+	int number;
+	bool pending;
 public:
-	floor();
-	floor(int numReq, int prior);
+	Floor();
+	Floor(int numReq, int prior, bool pend, int num);
 	int getReq();
 	void addReq(int num);
 	int getPriority();
 	void changePriority(int num);
-private:
-	int requests;
-	int priority;
+	bool request();
+	bool reached();
+	int getFloor();
+	void changeFloor();
+	int getStatus();
 };
