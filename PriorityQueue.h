@@ -1,5 +1,5 @@
 /*
-PriorityQueue header file: This priority queue will be the primary data structure
+Priority queue header file: This priority queue will be the primary data structure
 for the elevator class.
 */
 

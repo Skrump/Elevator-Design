@@ -1,19 +1,19 @@
 OBJS = main.o Elevator.o Floor.o node.o PriorityQueue.o
 
-UserMenu: $(OBJS)
+Elevator: $(OBJS)
 	g++ $(OBJS) -o Elevator
 	
-UserMenu.o: Elevator.cpp
+Elevator.o: Elevator.cpp
 	g++ -c Elevator.cpp
 	
 main.o: main.cpp
 	g++ -c main.cpp
 	
-RoC.o: Floor.cpp
+Floor.o: Floor.cpp
 	g++ -c Floor.cpp
 	
-PointCharge.o: node.cpp
+node.o: node.cpp
 	g++ -c node.cpp
 	
-LineCharge.o: PriorityQueue.cpp
+PriorityQueue.o: PriorityQueue.cpp
 	g++ -c PriorityQueue.cpp
