@@ -11,6 +11,9 @@
  * git add .
  * git commit -m "Enter comment here"
  * git push
+ * 
+ * To download from Git:
+ * git pull origin master
  ***************************************************************/
  
 #include <iostream>
