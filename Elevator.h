@@ -3,12 +3,6 @@
 
 using namespace std;
 
-double currWeight(double x);
-double maxWeight(double x);
-int mostReqFloor(int x);
-bool status();
-int numFloors(int x);
-
 void addFloor();
 void addMax();
 void addWeight(int w);
