@@ -23,14 +23,9 @@ public:
 	void addCurrWeight(double num);
 	double getMaxWeight();
 	void addMaxWeight(double num);
-	int getMostReqFloor();
-	void addMostReqFloor(int num);
-	void printDisplay();
 	bool goUp();
 	bool goDown();
 	bool openDoors();
 	bool closeDoors();
 	void updateStatus();
-	int emergencyState();
-	void grantPriority();
 };

@@ -38,7 +38,7 @@ int PriorityQueue::size()
 {
     int size = 0;
     
-	while(currPtr != NULL) { //this is merely a placeholder condition to attempt to state the idea that this loop will go until the next node in the list is a null node
+	while(currPtr != NULL) {
 
 		size++;
 	}
@@ -54,12 +54,12 @@ node PriorityQueue::front()
 
 void PriorityQueue::enqueue()
 {
-    
+    //add to queue (signal from Floor::request() could be used here)
 }
 
 void PriorityQueue::dequeue()
 {
-    
+    //delete from queue (signal from Floor::reached() could be used here)
 }
 
 void PriorityQueue::deleteEnd()

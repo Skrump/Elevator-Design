@@ -38,15 +38,16 @@ void Floor::changePriority(int num)
 
 bool Floor::request()
 {
-	//should also signal to create a node
+	//should also act as a signal to create a node
 	pending = true;
+	requests++;
 
-	return pending;
+	return 1;
 }
 
 bool Floor::reached()
 {
-	//should also singal to remove from queue
+	//should also act as a signal to remove from the queue
 	pending = false;
 
 	return 1;

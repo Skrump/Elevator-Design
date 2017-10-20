@@ -51,21 +51,6 @@ void Elevator::addMaxWeight(double num)
 	maxWeight = num;
 }
 
-int Elevator::getMostReqFloor()
-{
-	return mostReqFloor;
-}
-
-void Elevator::addMostReqFloor(int num)
-{
-	mostReqFloor = num;
-}
-
-void Elevator::printDisplay()
-{
-	cout << "display" << endl; //wip
-}
-
 bool Elevator::goUp()
 {
 	//wip
@@ -88,17 +73,5 @@ bool Elevator::closeDoors()
 
 void Elevator::updateStatus()
 {
-	//wip
-}
-
-int Elevator::emergencyState()
-{
-	//wip
-	return 0;
-}
-
-void Elevator::grantPriority()
-{
-	//wip
-	cout << name << " has priority" << endl;
+	status = ~status; //true (operational) -> false (error) OR false -> true
 }

@@ -21,6 +21,7 @@
 #include "Floor.h"
 #include "PriorityQueue.h"
 #include "node.h"
+#include "ControlHub.h"
 
 using namespace std;
 
