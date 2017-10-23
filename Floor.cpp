@@ -64,7 +64,7 @@ void Floor::changeFloor(int num)
 	number = num;
 }
 
-int Floor::getStatus()
+bool Floor::getStatus()
 {
 	//this is to help the queue, if necessary
 
