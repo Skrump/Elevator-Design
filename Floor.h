@@ -21,5 +21,5 @@ public:
 	bool reached();
 	int getFloor();
 	void changeFloor(int num);
-	int getStatus();
+	bool getStatus();
 };
