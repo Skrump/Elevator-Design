@@ -9,18 +9,40 @@
 
 ControlHub::ControlHub() {
 
+	numFloors = 2;
 	elevators = 0;
 	topFloors = new int [1];
 	topFloors[0] = 0; 
 	locked = new bool[1];
 	locked[1] = false;
+	myFloorArr = new Floor [numFloors];
 }
 
 ControlHub::ControlHub(int a) {
-
+	numFloors = 2;
 	elevators = a;
 	topFloors[0] = 0;
 	locked[1] = false;
+	myFloorArr = new Floor [numFloors];
+}
+
+ControlHub::ControlHub(int a, int f)
+{
+	numFloors = f; 
+	elevators = a;
+	topFloors[0] = 0;
+	locked[1] = false;
+	myFloorArr = new Floor [numFloors];
+}
+
+ControlHub::~ControlHub()
+{
+	delete myFloorArr;
+}
+
+void ControlHub::runMe()
+{
+	
 }
 
 int ControlHub::getMostReqFloor()

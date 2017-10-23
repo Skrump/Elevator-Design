@@ -27,6 +27,10 @@ using namespace std;
 
 int main()
 {
+	Elevator myElevator("Elevator 1", 0.0, 2500.0, 0, 1, false);
+	ControlHub myHub(0, 5);
+	
+	
 	int f, g = 0; //f is an input stream (forgive me if this is used incorrectly as it has been a while since
 				//I've done this sort of coding); g is a counter for the queue (For demo purposes only!)
 	Floor floor0(0, 0, 0, 0);	//individual floors ({total requests, priority, pending status, floor number}

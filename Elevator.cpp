@@ -12,6 +12,17 @@ Elevator::Elevator()
 	//numFloors();
 }
 
+Elevator::Elevator(const char a[11], double max, double curr, int most, bool stat, bool door)
+{
+	name = a;
+	currWeight = curr;
+	maxWeight = max;
+	status = stat;
+	time = 0;
+	_doorOpen = door;
+	//numFloors();
+}
+
 Elevator::Elevator(string a, double max, double curr, int most, bool stat, double t, bool door)
 {
 	name = a;
