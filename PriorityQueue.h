@@ -11,17 +11,18 @@ for the elevator class.
 
 class PriorityQueue
 {
-        node *head;
-        node *tail;
-        node *currPtr;
-        node *secPtr;
+	node *head;
+	node *tail;
+	node *currPtr;
+	node *secPtr;
+
     public:
         PriorityQueue();
         ~PriorityQueue();
         bool isEmpty();
         int size();
-        Floor front(); 
-        Floor rear(); 
+        Floor front();
+        Floor rear();
         void enqueue(Floor f);
         void dequeue();
 };

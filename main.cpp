@@ -27,9 +27,46 @@ using namespace std;
 
 int main()
 {
-    Floor myFloor;
-    PriorityQueue myQueue;
-    myQueue.enqueue(myFloor);
-    cout << "Size: " << myQueue.size() << endl;
+	int f, g = 0; //f is an input stream (forgive me if this is used incorrectly as it has been a while since
+				//I've done this sort of coding); g is a counter for the queue (For demo purposes only!)
+	Floor floor0 = {0, 0, 0, 0}; //individual floors ({total requests, priority, pending status, floor number}
+								//as per the "Floor.cpp" custom constructor) (For demo purposes only!)
+	Floor floor1 = {0, 0, 0, 1};
+	Floor floor2 = {0, 0, 0, 2};
+	Floor floor3 = {0, 0, 0, 3};
+	Floor floor4 = {0, 0, 0, 4};
+	Floor floor5 = {0, 0, 0, 5};
+
+	cout << "<Enter floor requests>" << endl << "<Enter '-1' to stop>" << endl; //For demo purposes only!
+
+	while(1) { //For demo purposes only!
+
+		cin >> f;
+
+		if (-1) { //user enters '-1'
+
+			break;
+		}
+
+		else {
+
+			if (g == 0) {
+
+				PriorityQueue queue; //create the queue with it's first node "root" here
+			}
+
+			cout << f << endl; //For debugging user input (Need a check for "not an integer"?)
+			g++;
+		}
+	}
+
+	/* Depending on our overall code progress, we either:
+	 *
+	 * 1. Run the NORMAL queue (enqueue and dequeue without implementing priority), OR ...
+	 * 2. Run the PRIORITY queue (enqueue, run the priority algorithm, reorder based on priority results, and THEN dequeue).
+	 *
+	 *  We MUST be able to implement the first option for the sake of the demo, which will focus on our queue working.
+	 */
+
     return 0;
 }

@@ -4,30 +4,40 @@
  *  Created on: Oct 19, 2017
  *      Author: daneg_000
  */
+
 #include "ControlHub.h"
 
 ControlHub::ControlHub() {
 
 	elevators = 0;
-	mostReqFloor = 0;
+	topFloors = {0};
 	locked = new bool[1];
-	locked[0] = false;
+	locked = false;
 }
 
 ControlHub::ControlHub(int a) {
 
 	elevators = a;
-	locked[a] = false;
+	topFloors = {0};
+	locked = false;
 }
 
 int ControlHub::getMostReqFloor()
 {
-	return mostReqFloor;
+
+	int d;
+
+	//run priority algorithm
+
+	return d;
 }
 
 void ControlHub::addMostReqFloor(int num)
 {
-	mostReqFloor = num;
+
+	//move floors down the array, then replace top spot
+
+	topFloors[0] = num;
 }
 
 bool ControlHub::getStatus(int b) {
@@ -38,12 +48,5 @@ bool ControlHub::getStatus(int b) {
 void ControlHub::printDisplay()
 {
 
-	cout << "display" << endl; //wip
-}
-
-void ControlHub::grantPriority()
-{
-
-	//cout << name << " has priority" << endl; //wip
-	cout << mostReqFloor << " has priority" << endl;
+	cout << "Floors " << topFloors[0] << ", " << topFloors[1] << ", & " << topFloors[2] << " have priority." << endl;
 }

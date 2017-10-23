@@ -6,7 +6,6 @@ Elevator::Elevator()
 	name = "Elevator 0";
 	currWeight = 0;
 	maxWeight = 0;
-	mostReqFloor = 0;
 	status = true;
 	//numFloors();
 }
@@ -16,7 +15,6 @@ Elevator::Elevator(string a, double max, double curr, int most, bool stat)
 	name = a;
 	currWeight = curr;
 	maxWeight = max;
-	mostReqFloor = most;
 	status = stat;
 	//numFloors();
 }

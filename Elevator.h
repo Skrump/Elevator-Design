@@ -11,7 +11,6 @@ private:
 	string name;
 	double currWeight;
 	double maxWeight;
-	int mostReqFloor;
 	bool status;
 	Floor numFloors; //wip
 public:

@@ -5,19 +5,23 @@
  *      Author: daneg_000
  */
 
-#pragma once
+#ifndef CONTROLHUB_H_
+#define CONTROLHUB_H_
+
 #include <iostream>
+#include <string>
+
 using namespace std;
 
-class ControlHub { //this class is for complex algorithms involving the floor priority,
+class ControlHub { //this WIP class is for complex algorithms involving the floor priority,
 			//determining which elevator moves upon a request, etc.
 
 	int elevators; //# of elevators in the system
-	int mostReqFloor;
+	int topFloors[]; //most requested floors (left -> right is greatest -> least)
 	bool *locked; //this array is for determining which elevators are locked
-				   //to the public
+				   //to the public (*locked[])
 
-public: //wip class with some functions moved from Elevator
+public: //includes some functions moved from Elevator class so far, help expand if necessary
 
 	ControlHub();
 	ControlHub(int a);
@@ -25,9 +29,8 @@ public: //wip class with some functions moved from Elevator
 	void addMostReqFloor(int num);
 	bool getStatus(int b);
 	void printDisplay();
-	void grantPriority();
 };
 
 
 
-/* CONTROLHUB_H_ */
+#endif /* CONTROLHUB_H_ */
