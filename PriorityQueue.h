@@ -7,21 +7,21 @@ for the elevator class.
 
 #include <cstddef>
 #include "node.h"
+#include "Floor.h"
 
 class PriorityQueue
 {
-        node *root;
+        node *head;
+        node *tail;
         node *currPtr;
-        node temp1;
-        node temp2;
-        void linkedList();
+        node *secPtr;
     public:
         PriorityQueue();
         ~PriorityQueue();
-        bool empty();
+        bool isEmpty();
         int size();
-        node front();
-        void enqueue();
+        Floor front(); 
+        Floor rear(); 
+        void enqueue(Floor f);
         void dequeue();
-        void deleteEnd();
 };

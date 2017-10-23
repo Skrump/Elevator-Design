@@ -1,4 +1,4 @@
-OBJS = main.o Elevator.o Floor.o node.o PriorityQueue.o
+OBJS = main.o Elevator.o Floor.o node.o PriorityQueue.o ControlHub.o
 
 Elevator: $(OBJS)
 	g++ $(OBJS) -o Elevator
@@ -17,3 +17,6 @@ node.o: node.cpp
 	
 PriorityQueue.o: PriorityQueue.cpp
 	g++ -c PriorityQueue.cpp
+
+ControlHub.o: ControlHub.cpp
+	g++ -c ControlHub.cpp

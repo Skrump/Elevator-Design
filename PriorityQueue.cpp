@@ -3,66 +3,83 @@
 
 PriorityQueue::PriorityQueue()
 {
-    root = new node;
-    root->next = 0;
-    root->x = 5;
-    currPtr = new node;
-	currPtr = NULL;
+    head = NULL;
+    tail = head;
+    currPtr = head;
+    secPtr = head;
 }
 
 PriorityQueue::~PriorityQueue()
 {
-    delete root;
+    while (size() != 0)
+    {
+    	dequeue();
+    }
 }
 
-void PriorityQueue::linkedList()
+bool PriorityQueue::isEmpty()
 {
     
-}
-
-bool PriorityQueue::empty()
-{
-    
-	if (size() == 0) {
-
-		return 1;
+	if (head == NULL)
+	{
+		return true;
 	}
 
-	else {
-
-		return 0;
+	else 
+	{
+		return false;
 	}
 }
 
 int PriorityQueue::size()
 {
     int size = 0;
-    
-	while(currPtr != NULL) {
-
+    currPtr = head;
+	while(currPtr != NULL)
+	{
+		currPtr = currPtr->next;
 		size++;
 	}
 
 	return size;
 }
 
-node PriorityQueue::front()
+Floor PriorityQueue::front()
 {
     
-	return *currPtr; 
+	return head->data; 
 }
 
-void PriorityQueue::enqueue()
+Floor PriorityQueue::rear()
 {
+	return tail->data;
+}
+
+void PriorityQueue::enqueue(Floor f)
+{
+	node *newNode = new node;
+	newNode->data = f;
+	newNode->next = NULL;
+	if (isEmpty()){
+		head = newNode;
+		tail = newNode;
+	}
+	else
+	{
+		tail->next = newNode;
+		tail = newNode;
+	}
     //add to queue (signal from Floor::request() could be used here)
 }
 
 void PriorityQueue::dequeue()
 {
+	node *temp = head;
+	if (head != NULL)
+	{
+		head = head->next;
+	}
+	delete temp;
     //delete from queue (signal from Floor::reached() could be used here)
 }
 
-void PriorityQueue::deleteEnd()
-{
-    
-}

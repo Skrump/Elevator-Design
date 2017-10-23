@@ -27,6 +27,9 @@ using namespace std;
 
 int main()
 {
-    
+    Floor myFloor;
+    PriorityQueue myQueue;
+    myQueue.enqueue(myFloor);
+    cout << "Size: " << myQueue.size() << endl;
     return 0;
 }

@@ -4,42 +4,46 @@
  *  Created on: Oct 19, 2017
  *      Author: daneg_000
  */
+#include "ControlHub.h"
 
-Hub::Hub() {
+ControlHub::ControlHub() {
 
 	elevators = 0;
-	locked[0] = {false};
+	mostReqFloor = 0;
+	locked = new bool[1];
+	locked[0] = false;
 }
 
-Hub::Hub(int a) {
+ControlHub::ControlHub(int a) {
 
 	elevators = a;
-	locked[a] = {false};
+	locked[a] = false;
 }
 
-int Elevator::getMostReqFloor()
+int ControlHub::getMostReqFloor()
 {
 	return mostReqFloor;
 }
 
-void Elevator::addMostReqFloor(int num)
+void ControlHub::addMostReqFloor(int num)
 {
 	mostReqFloor = num;
 }
 
-bool Hub::getStatus(int b) {
+bool ControlHub::getStatus(int b) {
 
 	return locked[b];
 }
 
-void Elevator::printDisplay()
+void ControlHub::printDisplay()
 {
 
 	cout << "display" << endl; //wip
 }
 
-void Elevator::grantPriority()
+void ControlHub::grantPriority()
 {
 
-	cout << name << " has priority" << endl; //wip
+	//cout << name << " has priority" << endl; //wip
+	cout << mostReqFloor << " has priority" << endl;
 }
