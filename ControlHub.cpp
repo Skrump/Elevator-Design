@@ -10,16 +10,17 @@
 ControlHub::ControlHub() {
 
 	elevators = 0;
-	topFloors = {0};
+	topFloors = new int [1];
+	topFloors[0] = 0; 
 	locked = new bool[1];
-	locked = false;
+	locked[1] = false;
 }
 
 ControlHub::ControlHub(int a) {
 
 	elevators = a;
-	topFloors = {0};
-	locked = false;
+	topFloors[0] = 0;
+	locked[1] = false;
 }
 
 int ControlHub::getMostReqFloor()

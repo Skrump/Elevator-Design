@@ -17,7 +17,7 @@ class ControlHub { //this WIP class is for complex algorithms involving the floo
 			//determining which elevator moves upon a request, etc.
 
 	int elevators; //# of elevators in the system
-	int topFloors[]; //most requested floors (left -> right is greatest -> least)
+	int *topFloors; //most requested floors (left -> right is greatest -> least)
 	bool *locked; //this array is for determining which elevators are locked
 				   //to the public (*locked[])
 

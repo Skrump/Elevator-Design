@@ -57,7 +57,7 @@ bool Elevator::goUp()
 	}
 	else
 	{
-		return //currentfloor
+		return true;//currentfloor
 	}
 	//wip
 }
@@ -70,7 +70,7 @@ bool Elevator::goDown()
 	}
 	else 
 	{
-		return //currentfloor
+		return true;//currentfloor
 	}
 	//wip
 }
