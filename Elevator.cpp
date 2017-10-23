@@ -7,15 +7,19 @@ Elevator::Elevator()
 	currWeight = 0;
 	maxWeight = 0;
 	status = true;
+	time = 0;
+	_doorOpen = false;
 	//numFloors();
 }
 
-Elevator::Elevator(string a, double max, double curr, int most, bool stat)
+Elevator::Elevator(string a, double max, double curr, int most, bool stat, double t, bool door)
 {
 	name = a;
 	currWeight = curr;
 	maxWeight = max;
 	status = stat;
+	time = t;
+	_doorOpen = door;
 	//numFloors();
 }
 
@@ -49,28 +53,38 @@ void Elevator::addMaxWeight(double num)
 	maxWeight = num;
 }
 
+double Elevator::getTime()
+{
+	return time;
+}
+
+void Elevator::changeTime(double t)
+{
+	time = t;
+}
+
 bool Elevator::goUp()
 {
-	if(_doorOpen = false) 
+	if(_doorOpen = false)
 	{
 		//floor++
 	}
 	else
 	{
-		return true;//currentfloor
+		return //currentfloor
 	}
 	//wip
 }
 
 bool Elevator::goDown()
 {
-	if(_doorOpen = false) 
+	if(_doorOpen = false)
 	{
 		//floor--
 	}
-	else 
+	else
 	{
-		return true;//currentfloor
+		return //currentfloor
 	}
 	//wip
 }
@@ -78,7 +92,7 @@ bool Elevator::goDown()
 bool Elevator::openDoors()
 {
 	_doorOpen = true;
-	return 1; 
+	return 1;
 	//wip
 }
 

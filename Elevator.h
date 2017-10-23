@@ -17,13 +17,15 @@ private:
 	Floor numFloors; //wip
 public:
 	Elevator();
-	Elevator(string a, double max, double curr, int most, bool stat);
+	Elevator(string a, double max, double curr, int most, bool stat, double time, bool door);
 	string getName();
 	void changeName(string a);
 	double getCurrWeight();
 	void addCurrWeight(double num);
 	double getMaxWeight();
 	void addMaxWeight(double num);
+	double getTime();
+	void changeTime(double t);
 	bool goUp();
 	bool goDown();
 	bool openDoors();
