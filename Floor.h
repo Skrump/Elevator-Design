@@ -20,5 +20,6 @@ public:
 	bool request();
 	bool reached();
 	int getFloor();
+	void changeFloor(int num);
 	int getStatus();
 };
