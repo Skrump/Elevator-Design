@@ -51,21 +51,41 @@ void Elevator::addMaxWeight(double num)
 
 bool Elevator::goUp()
 {
+	if(_doorOpen = false) 
+	{
+		//floor++
+	}
+	else
+	{
+		return //currentfloor
+	}
 	//wip
 }
 
 bool Elevator::goDown()
 {
+	if(_doorOpen = false) 
+	{
+		//floor--
+	}
+	else 
+	{
+		return //currentfloor
+	}
 	//wip
 }
 
 bool Elevator::openDoors()
 {
+	_doorOpen = true;
+	return 3.0; //time to open door
 	//wip
 }
 
 bool Elevator::closeDoors()
 {
+	_doorOpen = false;
+	return 3.0; //time to close door
 	//wip
 }
 
