@@ -70,6 +70,16 @@ bool ControlHub::getStatus(int b) {
 
 void ControlHub::printDisplay()
 {
-
-	cout << "Floors " << topFloors[0] << ", " << topFloors[1] << ", & " << topFloors[2] << " have priority." << endl;
+	//display elevator status
+	if(myFloorArray.numFloors() == false) 
+	{
+		cout << "Elevator status: Online" << endl << endl;
+	}
+	else 
+	{
+		cout << "Elevator status: Offline" << endl << endl;
+	} 
+	
+	//display priority floors
+	cout << "Floors " << topFloors[0] << ", " << topFloors[1] << ", & " << topFloors[2] << " have priority." << endl; 
 }
