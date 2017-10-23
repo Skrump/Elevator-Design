@@ -12,6 +12,7 @@ private:
 	double currWeight;
 	double maxWeight;
 	bool status;
+	int time; //up/down/open/close
 	Floor numFloors; //wip
 public:
 	Elevator();
