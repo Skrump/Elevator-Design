@@ -78,14 +78,14 @@ bool Elevator::goDown()
 bool Elevator::openDoors()
 {
 	_doorOpen = true;
-	return 3.0; //time to open door
+	return 1; 
 	//wip
 }
 
 bool Elevator::closeDoors()
 {
 	_doorOpen = false;
-	return 3.0; //time to close door
+	return 1;
 	//wip
 }
 
