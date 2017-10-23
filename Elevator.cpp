@@ -67,11 +67,11 @@ bool Elevator::goUp()
 {
 	if(_doorOpen = false)
 	{
-		//floor++
+		return true; //floor++
 	}
 	else
 	{
-		return true; //currentfloor
+		return false; //currentfloor
 	}
 	//wip
 }
@@ -80,11 +80,11 @@ bool Elevator::goDown()
 {
 	if(_doorOpen = false)
 	{
-		//floor--
+		return true; //floor--
 	}
 	else
 	{
-		return true; //currentfloor
+		return false; //currentfloor
 	}
 	//wip
 }
