@@ -27,6 +27,7 @@ public:
 	void addCurrWeight(double num);
 	double getMaxWeight();
 	void addMaxWeight(double num);
+	int getCurrFloor();
 	double getTime();
 	void changeTime(double t);
 	void goUp(int f);
