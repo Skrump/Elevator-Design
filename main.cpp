@@ -17,6 +17,7 @@
  ***************************************************************/
  
 #include <iostream>
+#include <vector>
 #include "Elevator.h"
 #include "Floor.h"
 #include "PriorityQueue.h"
@@ -25,43 +26,42 @@
 
 using namespace std;
 
+const int NUMFLOORS = 5;
+
 int main()
 {
 	Elevator myElevator("Elevator 1", 0.0, 2500.0, 0, 1, false);
-	ControlHub myHub(0, 5);
+	ControlHub myHub(0, NUMFLOORS);
+	vector<int> inputs;
+	inputs.resize(NUMFLOORS);
+	int g = 0; //f is an input stream, g is a counter for the queue (For demo purposes only!)
+	bool loopMe = true;
+    char next;
+    int i = 0 j = 0;
+
+	cout << "Please enter the number of the floor(s) you would like to go to: ";
+
+
+	do{ //For demo purposes only!
+
+	    cin >> next;
 	
-	int f, g = 0; //f is an input stream, g is a counter for the queue (For demo purposes only!)
-/*	WE DON'T NEED THIS
-	Floor floor0(0, 0, 0, 0);	//individual floors ({total requests, priority, pending status, floor number}
-	Floor floor1(0, 0, 0, 1);	//as per the "Floor.cpp" custom constructor) (For demo purposes only!)
-	Floor floor2(0, 0, 0, 2);
-	Floor floor3(0, 0, 0, 3);
-	Floor floor4(0, 0, 0, 4);
-	Floor floor5(0, 0, 0, 5);
-*/
+	    while(next != '\n')
+	    {
+	        if ((i % 2) == 0)
+	        {
+	            inputs[j] = next;
+	            j++;
+	        }
+	        i++;
+	        cin.get(next);
+	    }
+	    cout << endl;
 
-	cout << "<Enter floor requests>" << endl << "<Enter '-1' to stop>" << endl; //For demo purposes only!
+		//need an exit clause
+		loopMe = false;
 
-	while(1) { //For demo purposes only!
-
-		cin >> f;
-
-		if (-1) { //user enters '-1'
-
-			break;
-		}
-
-		else {
-
-			if (g == 0) {
-
-				PriorityQueue queue; //create the queue with it's first node "root" here
-			}
-
-			cout << f << endl; //For debugging user input (Need a check for "not an integer"?)
-			g++;
-		}
-	}
+	}while (loopMe);
 
 	/* Depending on our overall code progress, we either:
 	 *
