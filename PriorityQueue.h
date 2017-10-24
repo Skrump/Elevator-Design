@@ -25,4 +25,6 @@ class PriorityQueue
         int rear();
         void enqueue(int f);
         void dequeue();
+        void display();
+        void moveThrough();
 };

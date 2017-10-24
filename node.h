@@ -9,4 +9,6 @@ struct node
 {
     int data;
     node *next;
+public:
+    void printNode();
 };

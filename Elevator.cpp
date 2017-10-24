@@ -76,7 +76,7 @@ void Elevator::changeTime(double t)
 
 bool Elevator::goUp()
 {
-	if(_doorOpen == false)
+	if(_doorOpen = false)
 	{
 		return true; //floor++
 	}
@@ -89,7 +89,7 @@ bool Elevator::goUp()
 
 bool Elevator::goDown()
 {
-	if(_doorOpen == false)
+	if(_doorOpen = false)
 	{
 		return true; //floor--
 	}
