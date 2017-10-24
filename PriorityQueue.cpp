@@ -17,6 +17,26 @@ PriorityQueue::~PriorityQueue() {
     }
 }
 
+node *PriorityQueue::getHead()
+{
+	return head;
+}
+
+node *PriorityQueue::getTail()
+{
+	return tail;
+}
+
+node *PriorityQueue::getCurrPtr()
+{
+	return currPtr;
+}
+
+node *PriorityQueue::getSecPtr()
+{
+	return secPtr;
+}
+
 bool PriorityQueue::isEmpty() {
 
  	if (head == NULL) {
@@ -95,27 +115,31 @@ void PriorityQueue::display()
 		cout << temp->data << endl;
 		temp = temp->next;
 	}
-}
-
-void PriorityQueue::moveThrough()
-{
-	node *temp = new node;
-	temp = head;
-	while (temp != NULL)
+	if(temp == NULL)
 	{
-		cout << "Elevator arrived at Floor " << temp->data << endl;
-		cout << "Doors opened" << endl;
-		cout << "Doors closed" << endl;
-		temp = temp->next;
-		if(temp == NULL)
-		{
-			break;
-		}
-		else
-		{
-			cout << "Moving to Floor " << temp->data << endl;
-		}
+		cout << "Queue is now empty" << endl;
 	}
 }
+
+//void PriorityQueue::moveThrough()
+//{
+//	node *temp = new node;
+//	temp = head;
+//	while (temp != NULL)
+//	{
+//		cout << "Elevator arrived at Floor " << temp->data << endl;
+//		cout << "Doors opened" << endl;
+//		cout << "Doors closed" << endl;
+//		temp = temp->next;
+//		if(temp == NULL)
+//		{
+//			break;
+//		}
+//		else
+//		{
+//			cout << "Moving to Floor " << temp->data << endl;
+//		}
+//	}
+//}
 
 

@@ -97,7 +97,8 @@ void ControlHub::runMe()
 		}
 	}while (loopMe);
 
-	myQueue.moveThrough();
+	moveThrough();
+	myQueue.display();
 }
 
 int ControlHub::getMostReqFloor()
@@ -139,3 +140,26 @@ void ControlHub::printDisplay()
 	//display priority floors
 	cout << "Floors " << topFloors[0] << ", " << topFloors[1] << ", & " << topFloors[2] << " have priority." << endl; 
 }
+void ControlHub::moveThrough()
+{
+	node *temp = new node;
+	temp = myQueue.getHead();
+	while (temp != NULL)
+	{
+		cout << "Elevator arrived at Floor " << temp->data << endl;
+		cout << "Doors opened" << endl;
+		cout << "Doors closed" << endl;
+		temp = temp->next;
+		if(temp == NULL)
+		{
+			break;
+		}
+		else
+		{
+			cout << "Moving to Floor " << temp->data << endl;
+		}
+		myQueue.dequeue();
+	}
+	myQueue.dequeue();
+}
+

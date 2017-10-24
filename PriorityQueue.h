@@ -19,6 +19,10 @@ class PriorityQueue
     public:
         PriorityQueue();
         ~PriorityQueue();
+        node *getHead();
+        node *getTail();
+        node *getCurrPtr();
+        node *getSecPtr();
         bool isEmpty();
         int size();
         int front();
@@ -26,5 +30,5 @@ class PriorityQueue
         void enqueue(int f);
         void dequeue();
         void display();
-        void moveThrough();
+//        void moveThrough();
 };

@@ -41,6 +41,7 @@ public: //includes some functions moved from Elevator class so far, help expand 
 	void addMostReqFloor(int num);
 	bool getStatus(int b);
 	void printDisplay();
+	void moveThrough();
 };
 
 
