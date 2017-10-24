@@ -29,8 +29,8 @@ public:
 	void addMaxWeight(double num);
 	double getTime();
 	void changeTime(double t);
-	int goUp();
-	int goDown();
+	void goUp(int f);
+	void goDown(int g);
 	bool openDoors();
 	bool closeDoors();
 	void updateStatus();
