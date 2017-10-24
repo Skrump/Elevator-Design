@@ -30,15 +30,15 @@ int main()
 	Elevator myElevator("Elevator 1", 0.0, 2500.0, 0, 1, false);
 	ControlHub myHub(0, 5);
 	
-	
-	int f, g = 0; //f is an input stream (forgive me if this is used incorrectly as it has been a while since
-				//I've done this sort of coding); g is a counter for the queue (For demo purposes only!)
+	int f, g = 0; //f is an input stream, g is a counter for the queue (For demo purposes only!)
+/*	WE DON'T NEED THIS
 	Floor floor0(0, 0, 0, 0);	//individual floors ({total requests, priority, pending status, floor number}
 	Floor floor1(0, 0, 0, 1);	//as per the "Floor.cpp" custom constructor) (For demo purposes only!)
 	Floor floor2(0, 0, 0, 2);
 	Floor floor3(0, 0, 0, 3);
 	Floor floor4(0, 0, 0, 4);
 	Floor floor5(0, 0, 0, 5);
+*/
 
 	cout << "<Enter floor requests>" << endl << "<Enter '-1' to stop>" << endl; //For demo purposes only!
 

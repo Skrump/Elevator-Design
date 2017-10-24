@@ -11,9 +11,10 @@ ControlHub::ControlHub() {
 
 	numFloors = 2;
 	elevators = 0;
-	topFloors = new int [1];
+	topFloors = new int [numFloors];
 	topFloors[0] = 0; 
-	locked = new bool[1];
+	topFloors[1] = 0;
+	locked = new bool[numFloors];
 	locked[1] = false;
 	myFloorArr = new Floor [numFloors];
 }
@@ -21,7 +22,10 @@ ControlHub::ControlHub() {
 ControlHub::ControlHub(int a) {
 	numFloors = 2;
 	elevators = a;
+	topFloors = new int[1];
 	topFloors[0] = 0;
+	topFloors[1] = 0;
+	locked = new bool [numFloors];
 	locked[1] = false;
 	myFloorArr = new Floor [numFloors];
 }
@@ -30,14 +34,17 @@ ControlHub::ControlHub(int a, int f)
 {
 	numFloors = f; 
 	elevators = a;
+	topFloors = new int[f];
 	topFloors[0] = 0;
+	locked = new bool [f];
 	locked[1] = false;
 	myFloorArr = new Floor [numFloors];
 }
 
 ControlHub::~ControlHub()
 {
-	delete myFloorArr;
+	delete [] myFloorArr;
+	delete [] locked;
 }
 
 void ControlHub::runMe()
@@ -71,7 +78,8 @@ bool ControlHub::getStatus(int b) {
 void ControlHub::printDisplay()
 {
 	//display elevator status
-	if(myFloorArray.numFloors() == false) 
+	/*	PLEASE EXPLAIN WHAT YOU'RE TRYING TO DO HERE
+	if(myFloorArr.numFloors() == false) 
 	{
 		cout << "Elevator status: Online" << endl << endl;
 	}
@@ -79,7 +87,7 @@ void ControlHub::printDisplay()
 	{
 		cout << "Elevator status: Offline" << endl << endl;
 	} 
-	
+	*/
 	//display priority floors
 	cout << "Floors " << topFloors[0] << ", " << topFloors[1] << ", & " << topFloors[2] << " have priority." << endl; 
 }
