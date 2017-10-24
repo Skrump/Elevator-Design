@@ -76,7 +76,7 @@ void Elevator::changeTime(double t)
 	time = t;
 }
 
-void Elevator::getCurrFloor() {
+int Elevator::getCurrFloor() {
 	
 	return currFloor;
 	
