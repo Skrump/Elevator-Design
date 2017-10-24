@@ -14,10 +14,12 @@ private:
 	bool status;
 	double time; //up/down/open/close
 	bool _doorOpen; //open/close
+	int currFloor; 
 	Floor numFloors; //wip
+	
 public:
 	Elevator();
-	Elevator(const char a[11] , double max, double curr, int most, bool stat, bool door);
+	Elevator(const char a[11], double max, double curr, int most, bool stat, bool door);
 	Elevator(string a, double max, double curr, int most, bool stat, double time, bool door);
 	string getName();
 	void changeName(string a);
@@ -27,8 +29,8 @@ public:
 	void addMaxWeight(double num);
 	double getTime();
 	void changeTime(double t);
-	bool goUp();
-	bool goDown();
+	int goUp();
+	int goDown();
 	bool openDoors();
 	bool closeDoors();
 	void updateStatus();

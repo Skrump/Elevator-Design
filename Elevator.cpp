@@ -9,7 +9,7 @@ Elevator::Elevator()
 	status = true;
 	time = 0;
 	_doorOpen = false;
-	//numFloors();
+	numFloors() Floor;
 }
 
 Elevator::Elevator(const char a[11], double max, double curr, int most, bool stat, bool door)
