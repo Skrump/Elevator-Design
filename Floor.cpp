@@ -47,6 +47,7 @@ bool Floor::request()
 bool Floor::reached()
 {
 	//should also signal to remove from queue
+	cout << "Floor reached!" << endl;
 	pending = false;
 
 	return 1;

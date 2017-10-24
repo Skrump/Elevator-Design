@@ -88,7 +88,7 @@ void ControlHub::runMe()
 	        cin.get(next);
 	    }
 	    cout << endl;
-		for (int x = 0; x<inputs.size(); x++)
+		for (int x = 0; x < inputs.size(); x++)
 		{
 			myQueue.enqueue(inputs[x]);
 		}
@@ -98,7 +98,7 @@ void ControlHub::runMe()
 int ControlHub::getMostReqFloor()
 {
 
-	int d;
+	int d = 0;
 
 	//run priority algorithm
 
