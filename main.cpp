@@ -29,7 +29,7 @@ const int NUMFLOORS = 5;
 
 int main()
 {
-	Elevator myElevator("Elevator 1", 2500.0, 0.0, 0, 1, false);
+	Elevator myElevator("Elevator 1", 2500.0, 0.0, 0, 1, 1, false);
 	ControlHub myHub(1, NUMFLOORS);
 	
 
