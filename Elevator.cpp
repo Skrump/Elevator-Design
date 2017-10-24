@@ -74,7 +74,7 @@ void Elevator::changeTime(double t)
 	time = t;
 }
 
-bool Elevator::goUp()
+int Elevator::goUp()
 {
 	currFloor += 1;
 	return currFloor;
@@ -82,7 +82,7 @@ bool Elevator::goUp()
 	//wip
 }
 
-bool Elevator::goDown()
+int Elevator::goDown()
 {
 	currFloor -= 1;
 	return currFloor;
