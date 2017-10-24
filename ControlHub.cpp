@@ -91,6 +91,7 @@ void ControlHub::runMe()
 	        cin.get(next);
 	    }
 	    cout << endl;
+	    sortVec();
 		for (int x = 0; x<inputs.size(); x++)
 		{
 			myQueue.enqueue(inputs[x]);
@@ -163,3 +164,20 @@ void ControlHub::moveThrough()
 	myQueue.dequeue();
 }
 
+void ControlHub::sortVec()
+{
+	int temp, sortVal=0;
+	do{
+		for (int i = 0; i < inputs.size(); i++)
+		{
+			if (inputs[i] > inputs[i+1])
+			{
+				temp = inputs[i];
+				inputs[i] = inputs[i+1];
+				inputs[i+1] = temp;
+			}
+		}
+		sortVal++;
+	}while (sortVal < 6);
+	
+}

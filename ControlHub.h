@@ -28,7 +28,7 @@ class ControlHub { //this WIP class is for complex algorithms involving the floo
 	Elevator myElevator;	//Elevator Object (must change to an array at a later point)
 	Floor *myFloorArr;
 	vector<int> inputs;
-				   
+	void sortVec();
 
 public: //includes some functions moved from Elevator class so far, help expand if necessary
 
