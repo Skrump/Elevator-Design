@@ -42,6 +42,14 @@ ControlHub::ControlHub(int a, int f)
 	locked[1] = false;
 	myFloorArr = new Floor [numFloors];
 	inputs.resize(numFloors);
+	for(int i=0; i<f; i++) //sets Floor number info
+	{
+		myFloorArr[i].changeFloor(i+1);
+	}
+	for(int j=0; j<f; j++)//checks to see if it is named correctly.
+	{
+		cout << "Floor " << myFloorArr[j].getFloor() << endl;
+	}
 }
 
 ControlHub::~ControlHub()
