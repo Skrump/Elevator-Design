@@ -17,7 +17,6 @@
  ***************************************************************/
  
 #include <iostream>
-#include <vector>
 #include "Elevator.h"
 #include "Floor.h"
 #include "PriorityQueue.h"
@@ -32,36 +31,8 @@ int main()
 {
 	Elevator myElevator("Elevator 1", 0.0, 2500.0, 0, 1, false);
 	ControlHub myHub(0, NUMFLOORS);
-	vector<int> inputs;
-	inputs.resize(NUMFLOORS);
-	int g = 0; //f is an input stream, g is a counter for the queue (For demo purposes only!)
-	bool loopMe = true;
-    char next;
-    int i = 0 j = 0;
-
-	cout << "Please enter the number of the floor(s) you would like to go to: ";
-
-
-	do{ //For demo purposes only!
-
-	    cin >> next;
 	
-	    while(next != '\n')
-	    {
-	        if ((i % 2) == 0)
-	        {
-	            inputs[j] = next;
-	            j++;
-	        }
-	        i++;
-	        cin.get(next);
-	    }
-	    cout << endl;
-
-		//need an exit clause
-		loopMe = false;
-
-	}while (loopMe);
+	myHub.runMe();
 
 	/* Depending on our overall code progress, we either:
 	 *

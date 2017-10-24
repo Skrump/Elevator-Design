@@ -21,8 +21,8 @@ class PriorityQueue
         ~PriorityQueue();
         bool isEmpty();
         int size();
-        Floor front();
-        Floor rear();
-        void enqueue(Floor f);
+        int front();
+        int rear();
+        void enqueue(int f);
         void dequeue();
 };

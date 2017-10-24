@@ -7,6 +7,6 @@ node struct to be used to build priority queue structure
 
 struct node
 {
-    Floor data;
+    int data;
     node *next;
 };

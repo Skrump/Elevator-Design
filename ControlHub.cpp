@@ -17,6 +17,7 @@ ControlHub::ControlHub() {
 	locked = new bool[numFloors];
 	locked[1] = false;
 	myFloorArr = new Floor [numFloors];
+	inputs.resize(numFloors);
 }
 
 ControlHub::ControlHub(int a) {
@@ -28,6 +29,7 @@ ControlHub::ControlHub(int a) {
 	locked = new bool [numFloors];
 	locked[1] = false;
 	myFloorArr = new Floor [numFloors];
+	inputs.resize(numFloors);
 }
 
 ControlHub::ControlHub(int a, int f)
@@ -39,6 +41,7 @@ ControlHub::ControlHub(int a, int f)
 	locked = new bool [f];
 	locked[1] = false;
 	myFloorArr = new Floor [numFloors];
+	inputs.resize(numFloors);
 }
 
 ControlHub::~ControlHub()
@@ -49,7 +52,39 @@ ControlHub::~ControlHub()
 
 void ControlHub::runMe()
 {
+	bool loopMe = true;
+    char next;
+    int i, j;
+
+	do{ //For demo purposes only!
+		i = 0, j = 0;
+		cout << "Please enter the number of the floor(s) you would like to go to (enter 0 to exit loop): ";
+	    cin >> next;
 	
+	    while(next != '\n')
+	    {
+	        if ((i % 2) == 0)
+	        {
+	        	if (next == '0')
+	        	{
+					loopMe = false;
+	        	}
+				else 
+				{
+	            	inputs[j] = next;
+	            	j++;
+				}
+	    		
+	        }
+	        i++;
+	        cin.get(next);
+	    }
+	    cout << endl;
+		for (int x = 0; x<inputs.size(); x++)
+		{
+			myQueue.enqueue(inputs[x]);
+		}
+	}while (loopMe);
 }
 
 int ControlHub::getMostReqFloor()

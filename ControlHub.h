@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 #include <ctime>
 #include "PriorityQueue.h"
 #include "Elevator.h"
@@ -26,6 +27,7 @@ class ControlHub { //this WIP class is for complex algorithms involving the floo
 	PriorityQueue myQueue;	//Queue Object
 	Elevator myElevator;	//Elevator Object (must change to an array at a later point)
 	Floor *myFloorArr;
+	vector<int> inputs;
 				   
 
 public: //includes some functions moved from Elevator class so far, help expand if necessary

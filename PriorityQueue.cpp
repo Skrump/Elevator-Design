@@ -43,17 +43,17 @@ int PriorityQueue::size() {
  	return size;
 }
 
-Floor PriorityQueue::front() {
+int PriorityQueue::front() {
 
  	return head->data;
 }
 
-Floor PriorityQueue::rear() {
+int PriorityQueue::rear() {
 
 	return tail->data;
 }
 
-void PriorityQueue::enqueue(Floor f)
+void PriorityQueue::enqueue(int f)
 {
 
 	node *newNode = new node;
