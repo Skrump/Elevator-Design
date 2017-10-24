@@ -9,7 +9,7 @@ Elevator::Elevator()
 	status = true;
 	time = 0;
 	_doorOpen = false;
-	numFloors() Floor;
+	currFloor = 1;
 }
 
 Elevator::Elevator(const char a[11], double max, double curr, int most, bool stat, bool door)
@@ -76,27 +76,17 @@ void Elevator::changeTime(double t)
 
 bool Elevator::goUp()
 {
-	if(_doorOpen == false)
-	{
-		return true; //floor++
-	}
-	else
-	{
-		return false; //currentfloor
-	}
+	currFloor += 1;
+	return currFloor;
+	//floor++	
 	//wip
 }
 
 bool Elevator::goDown()
 {
-	if(_doorOpen == false)
-	{
-		return true; //floor--
-	}
-	else
-	{
-		return false; //currentfloor
-	}
+	currFloor -= 1;
+	return currFloor;
+	//floor--
 	//wip
 }
 
