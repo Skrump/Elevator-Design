@@ -74,18 +74,20 @@ void Elevator::changeTime(double t)
 	time = t;
 }
 
-int Elevator::goUp()
+void Elevator::goUp(int f)
 {
-	currFloor += 1;
-	return currFloor;
+	cout << "Going up" << endl;
+	currFloor = f;
+	cout << "Now at floor " << currFloor << endl;
 	//floor++	
 	//wip
 }
 
-int Elevator::goDown()
+void Elevator::goDown(int g)
 {
-	currFloor -= 1;
-	return currFloor;
+	cout << "Going down" << endl;
+	currFloor = g;
+	cout << "Now at floor " << currFloor << endl;
 	//floor--
 	//wip
 }
