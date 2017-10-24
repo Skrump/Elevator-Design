@@ -12,7 +12,7 @@ Elevator::Elevator()
 	currFloor = 1;
 }
 
-Elevator::Elevator(const char a[11], double max, double curr, int most, bool stat, bool door)
+Elevator::Elevator(const char a[11], double max, double curr, int most, int floor bool stat, bool door)
 {
 	name = a;
 	currWeight = curr;
@@ -20,10 +20,11 @@ Elevator::Elevator(const char a[11], double max, double curr, int most, bool sta
 	status = stat;
 	time = 0;
 	_doorOpen = door;
+	currFloor = floor;
 	//numFloors();
 }
 
-Elevator::Elevator(string a, double max, double curr, int most, bool stat, double t, bool door)
+Elevator::Elevator(string a, double max, double curr, int most, int floor, bool stat, double t, bool door)
 {
 	name = a;
 	currWeight = curr;
@@ -31,6 +32,7 @@ Elevator::Elevator(string a, double max, double curr, int most, bool stat, doubl
 	status = stat;
 	time = t;
 	_doorOpen = door;
+	currFloor = floor;
 	//numFloors();
 }
 
@@ -73,6 +75,12 @@ void Elevator::changeTime(double t)
 {
 	time = t;
 }
+
+void Elevator::getCurrFloor() {
+	
+	return currFloor;
+	
+}	
 
 void Elevator::goUp(int f)
 {
