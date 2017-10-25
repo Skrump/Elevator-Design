@@ -168,7 +168,7 @@ void ControlHub::sortVec()
 {
 	int temp, sortVal=0;
 	do{
-		for (int i = 0; i < inputs.size(); i++)
+		for (int i = 0; i < inputs.size() - 1; i++)
 		{
 			if (inputs[i] > inputs[i+1])
 			{
