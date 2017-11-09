@@ -74,8 +74,8 @@ void Elevator::changeTime(double t)
 	time = t;
 }
 
-int Elevator::getCurrFloor() {
-	
+int Elevator::getCurrFloor() 
+{
 	return currFloor;
 	
 }	
@@ -115,4 +115,61 @@ bool Elevator::closeDoors()
 void Elevator::updateStatus()
 {
 	status = ~status; //true (operational) -> false (error) OR false -> true
+}
+
+void Elevator::test(string a, double max, double curr, int most, double t) //need to add int f and int g. Refer to function(currFloor)
+{
+	name = a;
+	currWeight = curr;
+	maxWeight = max;
+	time = t;
+	currFloor = 1;
+
+	do 
+	{
+		if(name != a) 
+		{
+			cout << "Error in changeName" << endl;
+		}
+	} while(changeName(a));
+
+	do 
+	{
+		if(curr != currWeight)
+		{
+			cout << "Error in addCurrWeight" << endl;
+		}
+	} while(addCurrWeight(curr))
+
+	do
+	{
+		if(max != maxWeight)
+		{
+			cout << "Error in addMaxWeight" << endl;
+		}
+	} while(addMaxWeight(max))
+
+	do
+	{
+		if(t != time)
+		{
+			cout << "Error in changeTime" << endl;
+		}
+	} while(changeTime(t))
+
+	do
+	{
+		if(f != currFloor)
+		{
+			cout << "Error in goUp" << endl;
+		}
+	} while(goUp(f))
+
+	do
+	{
+		if(f != currFloor)
+		{
+			cout << "Error in goDown" << endl;
+		}
+	} while(goDown(int g))
 }

@@ -127,20 +127,9 @@ bool ControlHub::getStatus(int b) {
 
 void ControlHub::printDisplay()
 {
-	//display elevator status
-	/*	PLEASE EXPLAIN WHAT YOU'RE TRYING TO DO HERE
-	if(myFloorArr.numFloors() == false) 
-	{
-		cout << "Elevator status: Online" << endl << endl;
-	}
-	else 
-	{
-		cout << "Elevator status: Offline" << endl << endl;
-	} 
-	*/
-	//display priority floors
 	cout << "Floors " << topFloors[0] << ", " << topFloors[1] << ", & " << topFloors[2] << " have priority." << endl; 
 }
+
 void ControlHub::moveThrough()
 {
 	node *temp = new node;
@@ -180,4 +169,13 @@ void ControlHub::sortVec()
 		sortVal++;
 	}while (sortVal < 6);
 
+}
+
+void ControlHub::test(int num) 
+{
+	do 
+	{
+		if(num != topFloors[0])
+			cout << "Error in addMostReqFloor" << endl;
+	} while(addMostReqFloor(num))
 }

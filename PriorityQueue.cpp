@@ -37,8 +37,8 @@ node *PriorityQueue::getSecPtr()
 	return secPtr;
 }
 
-bool PriorityQueue::isEmpty() {
-
+bool PriorityQueue::isEmpty() 
+{
  	if (head == NULL) {
 
  		return true;
@@ -50,8 +50,8 @@ bool PriorityQueue::isEmpty() {
  	}
 }
 
-int PriorityQueue::size() {
-
+int PriorityQueue::size() 
+{
     int size = 0;
     currPtr = head;
  	while(currPtr != NULL) {
@@ -63,31 +63,29 @@ int PriorityQueue::size() {
  	return size;
 }
 
-int PriorityQueue::front() {
-
+int PriorityQueue::front() 
+{
  	return head->data;
 }
 
-int PriorityQueue::rear() {
-
+int PriorityQueue::rear()
+{
 	return tail->data;
 }
 
 void PriorityQueue::enqueue(int f)
 {
-
 	node *newNode = new node;
  	newNode->data = f;
  	newNode->next = NULL;
- 	if (isEmpty()){
-
+ 	if (isEmpty())
+ 	{
  		head = newNode;
  		tail = newNode;
  	}
 
  	else
  	{
-
 		tail->next = newNode;
 		tail = newNode;
 	}
@@ -95,11 +93,11 @@ void PriorityQueue::enqueue(int f)
     //add to queue (signal from Floor::request() could be used here)
 }
 
-void PriorityQueue::dequeue() {
-
+void PriorityQueue::dequeue() 
+{
  	node *temp = head;
- 	if (head != NULL) {
-
+ 	if (head != NULL) 
+ 	{
  		head = head->next;
  	}
 
@@ -141,5 +139,18 @@ void PriorityQueue::display()
 //		}
 //	}
 //}
+
+void PriorityQueue::test(int f)
+{
+	f = newNode->data
+	do 
+		{
+			if(newNode->data != f) 
+			{
+				cout << "Error in enqueue" << endl;
+			}
+		} while(enqueue(f));
+
+}
 
 
