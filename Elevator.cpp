@@ -12,6 +12,17 @@ Elevator::Elevator()
 	currFloor = 1;
 }
 
+Elevator::Elevator(const Elevator& obj)
+{
+	name = obj.name;
+	currWeight = obj.currWeight;
+	maxWeight = obj.maxWeight;
+	status = obj.status;
+	time = obj.time;
+	_doorOpen = obj._doorOpen;
+	currFloor = obj.currFloor;
+}
+
 Elevator::Elevator(const char a[11], double max, double curr, int most, bool stat, bool door)
 {
 	name = a;
@@ -74,8 +85,8 @@ void Elevator::changeTime(double t)
 	time = t;
 }
 
-int Elevator::getCurrFloor() 
-{
+int Elevator::getCurrFloor() {
+	
 	return currFloor;
 	
 }	
@@ -101,6 +112,7 @@ void Elevator::goDown(int g)
 bool Elevator::openDoors()
 {
 	_doorOpen = true;
+	cout << "Doors opened." << endl;
 	return 1;
 	//wip
 }
@@ -108,6 +120,12 @@ bool Elevator::openDoors()
 bool Elevator::closeDoors()
 {
 	_doorOpen = false;
+	double weight = 0;
+	cout << "Please enter weight of the passenger(s) that left." << endl;
+	cin >> weight;
+	currWeight = currWeight - weight;
+	cout << "Doors closed" << endl;
+	updateStatus();
 	return 1;
 	//wip
 }
@@ -115,61 +133,13 @@ bool Elevator::closeDoors()
 void Elevator::updateStatus()
 {
 	status = ~status; //true (operational) -> false (error) OR false -> true
-}
-
-void Elevator::test(string a, double max, double curr, int most, double t) //need to add int f and int g. Refer to function(currFloor)
-{
-	name = a;
-	currWeight = curr;
-	maxWeight = max;
-	time = t;
-	currFloor = 1;
-
-	do 
+	if(currWeight >= maxWeight)
 	{
-		if(name != a) 
-		{
-			cout << "Error in changeName" << endl;
-		}
-	} while(changeName(a));
-
-	do 
+		cout << "Current weight: " << currWeight << " exceeds maximum allotted weight of : " << maxWeight << endl;
+		cout << "Please wait until the next elevator." << endl;
+	}
+	else
 	{
-		if(curr != currWeight)
-		{
-			cout << "Error in addCurrWeight" << endl;
-		}
-	} while(addCurrWeight(curr))
-
-	do
-	{
-		if(max != maxWeight)
-		{
-			cout << "Error in addMaxWeight" << endl;
-		}
-	} while(addMaxWeight(max))
-
-	do
-	{
-		if(t != time)
-		{
-			cout << "Error in changeTime" << endl;
-		}
-	} while(changeTime(t))
-
-	do
-	{
-		if(f != currFloor)
-		{
-			cout << "Error in goUp" << endl;
-		}
-	} while(goUp(f))
-
-	do
-	{
-		if(f != currFloor)
-		{
-			cout << "Error in goDown" << endl;
-		}
-	} while(goDown(int g))
+		cout << "Current weight: " << currWeight << " out of maximum weight limit: " << maxWeight << endl;
+	}
 }

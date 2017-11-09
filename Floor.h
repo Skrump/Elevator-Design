@@ -22,5 +22,4 @@ public:
 	int getFloor();
 	void changeFloor(int num);
 	bool getStatus();
-	void test();
 };

@@ -19,6 +19,7 @@ private:
 	
 public:
 	Elevator();
+	Elevator(const Elevator& obj);
 	Elevator(const char a[11], double max, double curr, int most, bool stat, bool door);
 	Elevator(string a, double max, double curr, int most, bool stat, double time, bool door);
 	string getName();

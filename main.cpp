@@ -29,21 +29,12 @@ const int NUMFLOORS = 5;
 
 int main()
 {
-	Elevator myElevator("Elevator 1", 2500.0, 0.0, 0, 1, 1, false);
-	ControlHub myHub(1, NUMFLOORS);
-	Floor myFloor() //fill in values
-	PriorityQueue myPQ() //fill in values
+	Elevator myElevator("Elevator 1", 2500.0, 2390.0, 0, 1, 1, false);
+	ControlHub myHub(1, NUMFLOORS, myElevator);
 	
 
 
 	myHub.runMe();
-	
-	//unit testing purposes
-
-	myElevator.test();
-	myHub.test();
-	myFloor.test();
-	myPQ.test(); 
 
 	/* Depending on our overall code progress, we either:
 	 *

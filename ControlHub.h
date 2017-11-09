@@ -35,6 +35,7 @@ public: //includes some functions moved from Elevator class so far, help expand 
 	ControlHub();
 	ControlHub(int a);
 	ControlHub(int a, int f);	//constructor that takes the number of floors as well
+	ControlHub(int a, int f, Elevator ele);
 	~ControlHub();
 	void runMe();	//runs the program
 	int getMostReqFloor();

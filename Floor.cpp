@@ -72,28 +72,4 @@ bool Floor::getStatus()
 	return pending;
 }
 
-void Floor::test(int numReq, int prior, bool pend, int num)
-{
-	requests = numReq;
-	priority = prior;
-	pending = pend;
-	number = num;
 
-	do 
-	{
-		if(num != requests)
-			cout << "Error in addReq" << endl;
-	} while(addReq(num))
-
-	do 
-	{
-		if(num != priority)
-			cout << "Error in changePriority" << endl;
-	} while(changePriority(num))
-
-	do 
-	{
-		if(num != number)
-			cout << "Error in changeFloor" << endl;
-	} while(changeFloor(num))
-}
