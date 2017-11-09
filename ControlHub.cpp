@@ -62,41 +62,41 @@ void ControlHub::runMe()
 {
 	bool loopMe = true;
     char next;
-    int i, j;
+    int i = 0;
+	int j = 0;
+    int n = 1;
 
 	do{ //For demo purposes only!
-		i = 0, j = 0; int n=1;
 		cout << "Please enter the number of the floor(s) you would like to go to (enter 0 to exit loop): ";
 	    cin >> next;
 	
 	    while(next != '\n')
 	    {
-	        if ((i % 2) == 0)
-	        {
-	        	if (next == '0')
-	        	{
-					loopMe = false;
-					inputs.pop_back();
-					break;
-	        	}
-				else 
-				{
-					inputs.resize(n);
-	            	inputs[j] = next - '0';
-	            	j++;
-	            	n++;
-				}
-	        }
+			if (next == '0')
+			{
+				loopMe = false;
+				break;
+			}
+			else
+			{
+
+				inputs.resize(n);
+				inputs[j] = next - '0';
+				j++;
+				n++;
+			}
+
 	        i++;
 	        cin.get(next);
 	    }
 	    cout << endl;
-	    sortVec();
-		for (int x = 0; x<inputs.size(); x++)
-		{
-			myQueue.enqueue(inputs[x]);
-		}
 	}while (loopMe);
+
+    sortVec();
+	for (int x = 0; x<inputs.size(); x++)
+	{
+		myQueue.enqueue(inputs[x]);
+	}
 
 	moveThrough();
 	myQueue.display();
@@ -179,5 +179,5 @@ void ControlHub::sortVec()
 		}
 		sortVal++;
 	}while (sortVal < 6);
-	
+
 }
