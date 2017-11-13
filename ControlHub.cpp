@@ -11,12 +11,10 @@ ControlHub::ControlHub() {
 
 	numFloors = 2;
 	elevators = 0;
-	topFloors = new int [numFloors];
-	topFloors[0] = 0; 
-	topFloors[1] = 0;
 	locked = new bool[numFloors];
 	locked[1] = false;
 	myFloorArr = new Floor [numFloors];
+	topFloors.resize(floor(numFloors/3));
 	inputs.resize(0);
 	fileVec.resize(numFloors + 1);
 }
@@ -25,12 +23,10 @@ ControlHub::ControlHub(int a) {
 
 	numFloors = 2;
 	elevators = a;
-	topFloors = new int[1];
-	topFloors[0] = 0;
-	topFloors[1] = 0;
 	locked = new bool [numFloors];
 	locked[1] = false;
 	myFloorArr = new Floor [numFloors];
+	topFloors.resize(floor(numFloors/3));
 	inputs.resize(0);
 	fileVec.resize(numFloors + 1);
 }
@@ -40,11 +36,10 @@ ControlHub::ControlHub(int a, int f)
 
 	numFloors = f; 
 	elevators = a;
-	topFloors = new int[f];
-	topFloors[0] = 0;
 	locked = new bool [f];
 	locked[1] = false;
 	myFloorArr = new Floor [numFloors];
+	topFloors.resize(floor(numFloors/3));
 	inputs.resize(0);
 	fileVec.resize(numFloors + 1);
 	for(int i=0; i<f; i++) //sets Floor number info
@@ -62,11 +57,10 @@ ControlHub::ControlHub(int a, int f, Elevator ele)
 
 	numFloors = f;
 	elevators = a;
-	topFloors = new int[f];
-	topFloors[0] = 0;
 	locked = new bool [f];
 	locked[1] = false;
 	myFloorArr = new Floor [numFloors];
+	topFloors.resize(floor(numFloors/3));
 	inputs.resize(0);
 	fileVec.resize(numFloors + 1);
 	for(int i=0; i<f; i++) //sets Floor number info
@@ -134,7 +128,7 @@ void ControlHub::addMostReqFloor(int num)
 
 	//move floors down the array, then replace top spot
 
-	topFloors[0] = num;
+
 }
 
 bool ControlHub::getStatus(int b) {
@@ -156,7 +150,7 @@ void ControlHub::printDisplay()
 	} 
 	*/
 	//display priority floors
-	cout << "Floors " << topFloors[0] << ", " << topFloors[1] << ", & " << topFloors[2] << " have priority." << endl; 
+//	cout << "Floors " << topFloors[0] << ", " << topFloors[1] << ", & " << topFloors[2] << " have priority." << endl; 
 }
 void ControlHub::moveThrough()
 {
@@ -230,7 +224,7 @@ void ControlHub::getFromFile()	//gets information from data file and inserts the
 	fin.open("data.dat");
 	if (fin.fail())
 	{
-		cout << "404: File not found. . . Creating a new File\n";
+		cout << "\nError 404: File not found. . . Creating a new File\n\n";
 		writeToFile(0);
 		fin.open("data.dat");
 		if (fin.fail())
@@ -244,6 +238,19 @@ void ControlHub::getFromFile()	//gets information from data file and inserts the
 	
 	fin >> next;
 	
+	if (next != numFloors)
+	{
+		cout << "\nError 405: The number of floors has changed . . . Creating a new File\n\n";
+		fin.close();
+		writeToFile(0);
+		fin.open("data.dat");
+		if (fin.fail())
+		{
+			cout << "Error: File failed to open\n";
+			exit(1);
+		}
+		fin >> next;
+	}
 	while (!fin.eof())
 	{
 		fileVec[i] = next;

@@ -25,7 +25,7 @@
 
 using namespace std;
 
-const int NUMFLOORS = 50;
+const int NUMFLOORS = 10;
 
 int main()
 {
