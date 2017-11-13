@@ -83,35 +83,21 @@ void ControlHub::runMe()
 {
 	bool loopMe = true;
     char next;
+    int inp;
     int i = 0;
 	int j = 0;
     int n = 1;
 
-	do{ //For demo purposes only!
-		cout << "Please enter the number of the floor(s) you would like to go to (enter 0 to exit loop): ";
-	    cin >> next;
 
-	    while(next != '\n')
-	    {
-			if (next == '0') //breaks if 0 is used.
-			{
-				loopMe = false;
-				break;
-			}
-			else //adds inputs to vector for queueing floors
-			{
+	cout << "Please enter the number of the floor(s) you would like to go to (enter 0 to exit loop): ";
+		
+	do{
+		if (cin >> inp)
+			inputs.push_back(inp);
+	}while(cin && cin.peek() != '\n');
 
-				inputs.resize(n);
-				inputs[j] = next - '0';
-				j++;
-				n++;
-			}
+    cout << endl;
 
-	        i++;
-	        cin.get(next);
-	    }
-	    cout << endl;
-	}while (loopMe);
 
     sortVec(); //sorts vector
 	for (int x = 0; x<inputs.size(); x++)//queues inputs from vector

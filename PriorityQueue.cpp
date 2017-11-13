@@ -39,23 +39,21 @@ node *PriorityQueue::getSecPtr()
 
 bool PriorityQueue::isEmpty() {
 
- 	if (head == NULL) {
-
+ 	if (head == NULL) 
+ 	{
  		return true;
  	}
 
- 	else  {
-
+ 	else  
  		return false;
- 	}
 }
 
 int PriorityQueue::size() {
 
     int size = 0;
     currPtr = head;
- 	while(currPtr != NULL) {
-
+ 	while(currPtr != NULL) 
+ 	{
  		currPtr = currPtr->next;
  		size++;
  	}
@@ -79,31 +77,46 @@ void PriorityQueue::enqueue(int f)
 	node *newNode = new node;
  	newNode->data = f;
  	newNode->next = NULL;
- 	if (isEmpty()){
-
+ 	if (isEmpty())
+ 	{
  		head = newNode;
  		tail = newNode;
  	}
 
  	else
  	{
-
 		tail->next = newNode;
 		tail = newNode;
 	}
-
-    //add to queue (signal from Floor::request() could be used here)
 }
 
 void PriorityQueue::dequeue() {
 
  	node *temp = head;
- 	if (head != NULL) {
-
+ 	if (head != NULL)
+ 	{
  		head = head->next;
  	}
 
  	delete temp; //delete from queue (signal from Floor::reached() could be used here)
+}
+
+void PriorityQueue::emplace(int f)
+{
+	node *newNode = new node;
+ 	newNode->data = f;
+ 	newNode->next = NULL;
+ 	if (isEmpty())
+ 	{
+ 		head = newNode;
+ 		tail = newNode;
+ 	}
+ 	else
+ 	{
+		newNode->next = head;
+		head = newNode;
+	}
+	
 }
 
 void PriorityQueue::display()

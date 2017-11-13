@@ -25,13 +25,12 @@
 
 using namespace std;
 
-const int NUMFLOORS = 5;
+const int NUMFLOORS = 50;
 
 int main()
 {
 	Elevator myElevator("Elevator 1", 2500.0, 0.0, 0, 1, 1, false);
 	ControlHub myHub(1, NUMFLOORS, myElevator);
-	
 
 
 	myHub.runMe();
