@@ -18,9 +18,11 @@ ControlHub::ControlHub() {
 	locked[1] = false;
 	myFloorArr = new Floor [numFloors];
 	inputs.resize(0);
+	fileVec.resize(numFloors + 1);
 }
 
 ControlHub::ControlHub(int a) {
+
 	numFloors = 2;
 	elevators = a;
 	topFloors = new int[1];
@@ -30,10 +32,12 @@ ControlHub::ControlHub(int a) {
 	locked[1] = false;
 	myFloorArr = new Floor [numFloors];
 	inputs.resize(0);
+	fileVec.resize(numFloors + 1);
 }
 
 ControlHub::ControlHub(int a, int f)
 {
+
 	numFloors = f; 
 	elevators = a;
 	topFloors = new int[f];
@@ -42,6 +46,7 @@ ControlHub::ControlHub(int a, int f)
 	locked[1] = false;
 	myFloorArr = new Floor [numFloors];
 	inputs.resize(0);
+	fileVec.resize(numFloors + 1);
 	for(int i=0; i<f; i++) //sets Floor number info
 	{
 		myFloorArr[i].changeFloor(i+1);
@@ -54,6 +59,7 @@ ControlHub::ControlHub(int a, int f)
 
 ControlHub::ControlHub(int a, int f, Elevator ele)
 {
+
 	numFloors = f;
 	elevators = a;
 	topFloors = new int[f];
@@ -62,6 +68,7 @@ ControlHub::ControlHub(int a, int f, Elevator ele)
 	locked[1] = false;
 	myFloorArr = new Floor [numFloors];
 	inputs.resize(0);
+	fileVec.resize(numFloors + 1);
 	for(int i=0; i<f; i++) //sets Floor number info
 	{
 		myFloorArr[i].changeFloor(i+1);
@@ -88,7 +95,6 @@ void ControlHub::runMe()
 	int j = 0;
     int n = 1;
 
-
 	cout << "Please enter the number of the floor(s) you would like to go to: ";
 		
 	do{
@@ -98,13 +104,17 @@ void ControlHub::runMe()
 
     cout << endl;
 
+	getFromFile();
 
     sortVec(); //sorts vector
 	for (int x = 0; x<inputs.size(); x++)//queues inputs from vector
 	{
 		myQueue.enqueue(inputs[x]);
+		fileVec[inputs[x]]++;	//update file vector (adds a point to a requested floor)
 	}
-
+	writeToFile(1);
+	getFromFile();
+	
 	moveThrough();//elevator begins moving through input queue.
 	myQueue.display();
 }
@@ -212,4 +222,62 @@ void ControlHub::sortVec()
 		}
 		sortVal++;
 	}while (sortVal < 6);
+}
+
+void ControlHub::getFromFile()	//gets information from data file and inserts them into a vector
+{
+	ifstream fin;
+	fin.open("data.dat");
+	if (fin.fail())
+	{
+		cout << "404: File not found. . . Creating a new File\n";
+		writeToFile(0);
+		fin.open("data.dat");
+		if (fin.fail())
+		{
+			cout << "Error: File failed to open\n";
+			exit(1);
+		}
+	}
+	
+	int next, i =0;
+	
+	fin >> next;
+	
+	while (!fin.eof())
+	{
+		fileVec[i] = next;
+		i++;
+		fin >> next;
+	}
+	fin.close();
+}
+
+void ControlHub::writeToFile(int num)	//writes vector to the file
+{
+	ofstream fout;
+	fout.open("data.dat");
+	if (fout.fail())
+	{
+		cout << "Error: File failed to open\n";
+		exit(1);
+	}
+	
+	if (num == 0)
+	{
+		fout << numFloors << endl;
+		for (int i = 0; i < numFloors; i++)
+		{
+			fout << 0 << endl;
+		}
+	}
+	else if (num == 1)
+	{
+		for (int i = 0; i < fileVec.size(); i++)
+		{
+			fout << fileVec[i] << endl;
+		}
+	}
+	
+	fout.close();
 }
