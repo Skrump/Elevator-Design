@@ -101,6 +101,8 @@ void ControlHub::runMe()
 	getFromFile();
 
     sortVec(); //sorts vector
+    /*findMostReqFloor(); //this function only gets the top 3 floors regardless of the amount of floors, needs to be updated to allow for 
+    //any amount of floors*/
 	for (int x = 0; x<inputs.size(); x++)//queues inputs from vector
 	{
 		myQueue.enqueue(inputs[x]);
@@ -113,14 +115,23 @@ void ControlHub::runMe()
 	myQueue.display();
 }
 
-int ControlHub::getMostReqFloor()
+void ControlHub::findMostReqFloor()
 {
-
-	int d;
-
-	//run priority algorithm
-
-	return d;
+	if (numFloors >= 5)	//base case, doesnt really need priority
+	{
+		topFloors[0] = 1;
+		topFloors[1] = 2;
+		topFloors[2] = 3;
+		for (int i = 4; i < fileVec.size(); i++)
+		{
+			if (fileVec[i] > topFloors[2])
+				topFloors[2] = i;
+			if (topFloors[2] > topFloors[1])
+				swapVal(2,1);
+			if(topFloors[1] > topFloors[0])
+				swapVal(1,0);
+		}
+	}
 }
 
 void ControlHub::addMostReqFloor(int num)
@@ -287,4 +298,12 @@ void ControlHub::writeToFile(int num)	//writes vector to the file
 	}
 	
 	fout.close();
+}
+
+void ControlHub::swapVal(int f, int s)
+{
+	int temp;
+	temp = topFloors[f];
+	topFloors[f] = topFloors[s];
+	topFloors[s] = temp;
 }

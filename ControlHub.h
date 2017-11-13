@@ -35,6 +35,7 @@ class ControlHub { //this WIP class is for complex algorithms involving the floo
 	void sortVec();	//sorts the inputs vector
 	void getFromFile();	//gets data from file
 	void writeToFile(int num);	//writes to/updates file
+	void swapVal(int f, int s);
 
 public: //includes some functions moved from Elevator class so far, help expand if necessary
 
@@ -44,7 +45,7 @@ public: //includes some functions moved from Elevator class so far, help expand 
 	ControlHub(int a, int f, Elevator ele);
 	~ControlHub();
 	void runMe();	//runs the program
-	int getMostReqFloor();
+	void findMostReqFloor();	//gets priority status
 	void addMostReqFloor(int num);
 	bool getStatus(int b);
 	void printDisplay();
