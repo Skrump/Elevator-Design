@@ -89,7 +89,7 @@ void ControlHub::runMe()
     int n = 1;
 
 
-	cout << "Please enter the number of the floor(s) you would like to go to (enter 0 to exit loop): ";
+	cout << "Please enter the number of the floor(s) you would like to go to: ";
 		
 	do{
 		if (cin >> inp)
