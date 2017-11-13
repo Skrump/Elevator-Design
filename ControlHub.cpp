@@ -183,10 +183,12 @@ void ControlHub::moveThrough()
 		else if(tempNext->data < temp->data) //checks if elevator is going up
 		{
 			myElevator.goUp(temp->data);
+			myFloorArr[temp->data].addReq();
 		}
 		else if(tempNext->data > temp->data)//checks if elevator is going down.
 		{
 			myElevator.goDown(temp->data);
+			myFloorArr[temp->data].addReq();
 		}
 		tempNext = tempNext->next;
 		myQueue.dequeue();

@@ -21,9 +21,14 @@ int Floor::getReq()
 	return requests;
 }
 
-void Floor::addReq(int num)
+void Floor::changeReq(int num)
 {
 	requests = num;
+}
+
+void Floor::addReq()
+{
+	requests = requests + 1;
 }
 
 int Floor::getPriority()

@@ -14,7 +14,8 @@ public:
 	Floor();
 	Floor(int numReq, int prior, bool pend, int num);
 	int getReq();
-	void addReq(int num);
+	void changeReq(int num);
+	void addReq();
 	int getPriority();
 	void changePriority(int num);
 	bool request();
