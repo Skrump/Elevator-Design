@@ -264,10 +264,11 @@ void ControlHub::moveThrough()
 	myQueue.dequeue();
 }
 
-void ControlHub::sortVec()
+void ControlHub::sortVec()	//bubble sort
 {
-	int temp, sortVal=0;
+	int temp, sorted;
 	do{
+		sorted = inputs.size();
 		for (int i = 0; i < inputs.size() - 1; i++)
 		{
 			if (inputs[i] > inputs[i+1])
@@ -276,9 +277,11 @@ void ControlHub::sortVec()
 				inputs[i] = inputs[i+1];
 				inputs[i+1] = temp;
 			}
+			else
+				sorted--;
 		}
-		sortVal++;
-	}while (sortVal < 6);
+	}while (sorted > 1);
+
 }
 
 void ControlHub::getFromFile()	//gets information from data file and inserts them into a vector
