@@ -117,13 +117,14 @@ void ControlHub::runMe()
     int i = 0;
 	int j = 0;
     int n = 1;
-    vector<int> inputs2 = {1, 5, 9, 3, 2};
-    vector<int> inputs3 = {1, 2, 4, 6, 3};
-    vector<int> weight2 = {900, 430, 220, 120, 130};
-    vector<int> weight3 = {870, 360, 175, 150, 185};
+    vector<int> inputs2;
+    vector<int> inputs3;
+    vector<int> weight2;
+    vector<int> weight3;
+    updateVectors(inputs2, inputs3, weight2, weight3);
+    
     PriorityQueue queue2;
     PriorityQueue queue3;
-
 	cout << "Please enter the number of the floor(s) you would like to go to: ";
 
 	do{
@@ -136,7 +137,7 @@ void ControlHub::runMe()
     sortVec(inputs); //sorts vector
     sortVec(inputs2);
     sortVec(inputs3);
-    
+    getFromFile();
 
     findMostReqFloor();	//updates priority vector
 
@@ -435,4 +436,31 @@ void ControlHub::swapVal(int f, int s)
 	temp = topFloors[f];
 	topFloors[f] = topFloors[s];
 	topFloors[s] = temp;
+}
+
+void ControlHub::updateVectors(vector<int> &v1, vector<int> &v2, vector<int> &v3, vector<int> &v4)
+{
+	v1.push_back(1);
+	v1.push_back(5);
+	v1.push_back(9);
+	v1.push_back(3);
+	v1.push_back(2);
+	
+	v2.push_back(1);
+	v2.push_back(2);
+	v2.push_back(4);
+	v2.push_back(6);
+	v2.push_back(3);
+	
+	v3.push_back(900);
+	v3.push_back(430);
+	v3.push_back(220);
+	v3.push_back(120);
+	v3.push_back(130);
+	
+	v4.push_back(870);
+	v4.push_back(360);
+	v4.push_back(175);
+	v4.push_back(150);
+	v4.push_back(185);
 }

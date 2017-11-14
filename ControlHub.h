@@ -36,6 +36,7 @@ class ControlHub { //this WIP class is for complex algorithms involving the floo
 	void getFromFile();	//gets data from file
 	void writeToFile(int num);	//writes to/updates file
 	void swapVal(int f, int s);
+	void updateVectors(vector<int> &v1, vector<int> &v2, vector<int> &v3, vector<int> &v4);
 
 public: //includes some functions moved from Elevator class so far, help expand if necessary
 
