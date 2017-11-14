@@ -33,8 +33,10 @@ ControlHub::ControlHub(int a) {
 
 ControlHub::ControlHub(int a, int f)
 {
-
-	numFloors = f; 
+	if (f < 2)
+		numFloors = 2;
+	else 
+		numFloors = f; 
 	elevators = a;
 	locked = new bool [f];
 	locked[1] = false;
@@ -54,8 +56,10 @@ ControlHub::ControlHub(int a, int f)
 
 ControlHub::ControlHub(int a, int f, Elevator ele)
 {
-
-	numFloors = f;
+	if (f < 2)
+		numFloors = 2;
+	else
+		numFloors = f;
 	elevators = a;
 	locked = new bool [f];
 	locked[1] = false;
@@ -101,8 +105,14 @@ void ControlHub::runMe()
 	getFromFile();
 
     sortVec(); //sorts vector
-    /*findMostReqFloor(); //this function only gets the top 3 floors regardless of the amount of floors, needs to be updated to allow for 
-    //any amount of floors*/
+    findMostReqFloor();	//updates priority vector
+    
+    cout << "top floors:\n";
+    for (int i = 0; i < topFloors.size(); i++)
+    {
+    	cout << topFloors[i] << endl;
+    }
+    
 	for (int x = 0; x<inputs.size(); x++)//queues inputs from vector
 	{
 		myQueue.enqueue(inputs[x]);
@@ -117,19 +127,41 @@ void ControlHub::runMe()
 
 void ControlHub::findMostReqFloor()
 {
-	if (numFloors >= 5)	//base case, doesnt really need priority
+	bool restart = false;
+	int counter, back, num1, num2;
+	counter = 0;
+	for (int i = 0; i < fileVec.size(); i++)	//checks if there is data in the file
 	{
-		topFloors[0] = 1;
-		topFloors[1] = 2;
-		topFloors[2] = 3;
-		for (int i = 4; i < fileVec.size(); i++)
+		if (fileVec[i] < 1)
+			counter++;
+		if (counter == fileVec.size())
+			restart = true;
+	}
+	
+	if (restart)	//sets all priority to floor 1 if there is no data in the file
+	{
+		for (int i = 0; i < topFloors.size(); i++)
 		{
-			if (fileVec[i] > topFloors[2])
-				topFloors[2] = i;
-			if (topFloors[2] > topFloors[1])
-				swapVal(2,1);
-			if(topFloors[1] > topFloors[0])
-				swapVal(1,0);
+			topFloors[i] = 1;
+		}
+	}
+	else 
+	{
+		/*for (int i = 0; i < topFloors.size()/3; i++)
+		{
+			topFloors[i] = i;
+		}*/
+		for (int i = 1; i < fileVec.size(); i++)
+		{
+			back = topFloors.back();
+			if (fileVec[i] > fileVec[back])
+				topFloors.back() = i;
+				
+			for (int j = topFloors.size() - 1; j >= 1 ; j--)
+			{
+				if (fileVec[topFloors[j]] > fileVec[topFloors[j-1]])
+					swapVal(j, j-1);
+			}
 		}
 	}
 }
