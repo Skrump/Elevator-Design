@@ -39,6 +39,5 @@ int main()
 
 	ControlHub myHub(3, NUMFLOORS, elevatorVec);
 	myHub.runMe();
-	cout << "test" << endl;
     return 0;
 }

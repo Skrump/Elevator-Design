@@ -138,7 +138,6 @@ void ControlHub::runMe()
     sortVec(inputs); //sorts vector
     sortVec(inputs2);
     sortVec(inputs3);
-    getFromFile();
 
     findMostReqFloor();	//updates priority vector
 
