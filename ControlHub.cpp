@@ -133,6 +133,7 @@ void ControlHub::runMe()
 	}while(cin && cin.peek() != '\n');
 
     cout << endl;
+    getFromFile();
 
     sortVec(inputs); //sorts vector
     sortVec(inputs2);
