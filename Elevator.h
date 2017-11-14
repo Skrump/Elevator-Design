@@ -35,5 +35,6 @@ public:
 	void goDown(int g);
 	bool openDoors();
 	bool closeDoors();
+	bool closeDoors(int num);
 	void updateStatus();
 };

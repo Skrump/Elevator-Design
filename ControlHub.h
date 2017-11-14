@@ -25,13 +25,14 @@ class ControlHub { //this WIP class is for complex algorithms involving the floo
 	int numFloors;	//# of floors in the building
 	int elevators; //# of elevators in the system
 	bool *locked; //this array is for determining which elevators are locked to the public (*locked[])
-	PriorityQueue myQueue;	//Queue Object
-	Elevator myElevator;	//Elevator Object (must change to an array at a later point)
+	PriorityQueue myQueue;//Queue Object
+	vector<Elevator> myElevator;	//Elevator Object (must change to an array at a later point)
 	Floor *myFloorArr;
 	vector<int> topFloors; //most requested floors (left -> right is greatest -> least)
 	vector<int> inputs;	//user's inputs (gets sorted and pushed to queue)
 	vector<int> fileVec;	//used to get input from files
 	void sortVec();	//sorts the inputs vector
+	void sortVec(vector<int>& vec);
 	void getFromFile();	//gets data from file
 	void writeToFile(int num);	//writes to/updates file
 	void swapVal(int f, int s);
@@ -41,14 +42,15 @@ public: //includes some functions moved from Elevator class so far, help expand 
 	ControlHub();
 	ControlHub(int a);
 	ControlHub(int a, int f);	//constructor that takes the number of floors as well
-	ControlHub(int a, int f, Elevator ele);
+	ControlHub(int a, int f, vector<Elevator> ele);
 	~ControlHub();
 	void runMe();	//runs the program
 	void findMostReqFloor();	//gets priority status
 	void addMostReqFloor(int num);
 	bool getStatus(int b);
 	void printDisplay();
-	void moveThrough();
+	void moveThrough(Elevator ele, PriorityQueue& queue);
+	void moveThrough(Elevator ele, PriorityQueue& queue, vector<int> vec);
 };
 
 

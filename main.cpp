@@ -30,7 +30,13 @@ const int NUMFLOORS = 10;
 int main()
 {
 	Elevator myElevator("Elevator 1", 2500.0, 0.0, 0, 1, 1, false);
-	ControlHub myHub(1, NUMFLOORS, myElevator);
+	Elevator secElevator("Elevator 2", 2500.0, 0.0, 0, 1, 1, false);
+	Elevator thirdElevator("Elevator 3", 2500.0, 0.0, 0, 1, 1, false);
+	vector<Elevator> elevatorVec {myElevator, secElevator, thirdElevator};
+
+	cout << "Worked" << endl;
+
+	ControlHub myHub(3, NUMFLOORS, elevatorVec);
 	myHub.runMe();
 
     return 0;

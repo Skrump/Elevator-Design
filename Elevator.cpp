@@ -130,16 +130,31 @@ bool Elevator::closeDoors()
 	//wip
 }
 
+bool Elevator::closeDoors(int num)
+{
+	_doorOpen = false;
+	double weight = 0;
+	cout << "Please enter weight of the passenger(s) that left." << endl;
+	weight = num;
+	cout << weight << endl;
+	currWeight = currWeight - weight;
+	cout << "Doors closed" << endl;
+	updateStatus();
+	return 1;
+}
+
 void Elevator::updateStatus()
 {
 	status = ~status; //true (operational) -> false (error) OR false -> true
 	if(currWeight >= maxWeight)
 	{
+//		cout << name << endl;
 		cout << "Current weight: " << currWeight << " exceeds maximum allotted weight of : " << maxWeight << endl;
 		cout << "Please wait until the next elevator." << endl;
 	}
 	else
 	{
+//		cout << name << endl;
 		cout << "Current weight: " << currWeight << " out of maximum weight limit: " << maxWeight << endl;
 	}
 }
