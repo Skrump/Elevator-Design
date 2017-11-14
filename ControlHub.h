@@ -2,7 +2,6 @@
  * ControlHub.h
  *
  *  Created on: Oct 19, 2017
- *      Author: daneg_000
  */
 
 #ifndef CONTROLHUB_H_

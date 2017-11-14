@@ -3,7 +3,7 @@
  * Elevator Design Project
  * Course Project for Software Engineering 1 (CMPE 131)
  * Professor: Dr. Hungwen Li
- * Last Modified: 10/13/2017
+ * Last Modified: 11/13/2017
  * Description: This program will improve upon basic elevator 
  * programs. It utilizes a priority queue to process the elevator
  * requests per floor.
@@ -25,23 +25,13 @@
 
 using namespace std;
 
-const int NUMFLOORS = 10;
+const int NUMFLOORS = 10;	
 
 int main()
 {
 	Elevator myElevator("Elevator 1", 2500.0, 0.0, 0, 1, 1, false);
 	ControlHub myHub(1, NUMFLOORS, myElevator);
-
-
 	myHub.runMe();
-
-	/* Depending on our overall code progress, we either:
-	 *
-	 * 1. Run the NORMAL queue (enqueue and dequeue without implementing priority), OR ...
-	 * 2. Run the PRIORITY queue (enqueue, run the priority algorithm, reorder based on priority results, and THEN dequeue).
-	 *
-	 *  We MUST be able to implement the first option for the sake of the demo, which will focus on our queue working.
-	 */
 
     return 0;
 }

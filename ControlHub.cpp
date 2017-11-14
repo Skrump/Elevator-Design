@@ -2,7 +2,6 @@
  * ControlHub.cpp
  *
  *  Created on: Oct 19, 2017
- *      Author: daneg_000
  */
 
 #include "ControlHub.h"
@@ -17,6 +16,12 @@ ControlHub::ControlHub() {
 	topFloors.resize(floor(numFloors/3));
 	inputs.resize(0);
 	fileVec.resize(numFloors + 1);
+	fileVec.back() = 0;
+	
+	for (int i = 0; i < topFloors.size(); i++)
+	{
+		topFloors[i] = i+1;
+	}
 }
 
 ControlHub::ControlHub(int a) {
@@ -29,6 +34,12 @@ ControlHub::ControlHub(int a) {
 	topFloors.resize(floor(numFloors/3));
 	inputs.resize(0);
 	fileVec.resize(numFloors + 1);
+	fileVec.back() = 0;
+	
+	for (int i = 0; i < topFloors.size(); i++)
+	{
+		topFloors[i] = i+1;
+	}
 }
 
 ControlHub::ControlHub(int a, int f)
@@ -44,6 +55,13 @@ ControlHub::ControlHub(int a, int f)
 	topFloors.resize(floor(numFloors/3));
 	inputs.resize(0);
 	fileVec.resize(numFloors + 1);
+	fileVec.back() = 0;
+	
+	for (int i = 0; i < topFloors.size(); i++)
+	{
+		topFloors[i] = i+1;
+	}
+	
 	for(int i=0; i<f; i++) //sets Floor number info
 	{
 		myFloorArr[i].changeFloor(i+1);
@@ -67,6 +85,13 @@ ControlHub::ControlHub(int a, int f, Elevator ele)
 	topFloors.resize(floor(numFloors/3));
 	inputs.resize(0);
 	fileVec.resize(numFloors + 1);
+	fileVec.back() = 0;
+	
+	for (int i = 0; i < topFloors.size(); i++)
+	{
+		topFloors[i] = i+1;
+	}
+	
 	for(int i=0; i<f; i++) //sets Floor number info
 	{
 		myFloorArr[i].changeFloor(i+1);
@@ -107,12 +132,6 @@ void ControlHub::runMe()
     sortVec(); //sorts vector
     findMostReqFloor();	//updates priority vector
     
-    cout << "top floors:\n";
-    for (int i = 0; i < topFloors.size(); i++)
-    {
-    	cout << topFloors[i] << endl;
-    }
-    
 	for (int x = 0; x<inputs.size(); x++)//queues inputs from vector
 	{
 		myQueue.enqueue(inputs[x]);
@@ -128,9 +147,10 @@ void ControlHub::runMe()
 void ControlHub::findMostReqFloor()
 {
 	bool restart = false;
-	int counter, back, num1, num2;
+	int counter, ele, num1, num2;
 	counter = 0;
-	for (int i = 0; i < fileVec.size(); i++)	//checks if there is data in the file
+	
+	for (int i = 1; i < fileVec.size(); i++)	//checks if there is data in the file
 	{
 		if (fileVec[i] < 1)
 			counter++;
@@ -147,14 +167,14 @@ void ControlHub::findMostReqFloor()
 	}
 	else 
 	{
-		/*for (int i = 0; i < topFloors.size()/3; i++)
+		for (int i = 0; i < topFloors.size(); i++)
 		{
-			topFloors[i] = i;
-		}*/
+			topFloors[i] = fileVec.size();
+		}
 		for (int i = 1; i < fileVec.size(); i++)
 		{
-			back = topFloors.back();
-			if (fileVec[i] > fileVec[back])
+			ele = topFloors.back();
+ 			if (fileVec[i] >= fileVec[ele])
 				topFloors.back() = i;
 				
 			for (int j = topFloors.size() - 1; j >= 1 ; j--)
