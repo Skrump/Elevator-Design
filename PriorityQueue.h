@@ -31,5 +31,4 @@ class PriorityQueue
         void dequeue();
         void emplace(int f);
         void display();
-//        void moveThrough();
 };
