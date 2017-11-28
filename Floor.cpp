@@ -43,7 +43,6 @@ void Floor::changePriority(int num)
 
 bool Floor::request()
 {
-	//should also signal to create a node
 	pending = true;
 
 	return pending;
@@ -51,7 +50,6 @@ bool Floor::request()
 
 bool Floor::reached()
 {
-	//should also signal to remove from queue
 	cout << "Floor reached!" << endl;
 	pending = false;
 
@@ -60,8 +58,6 @@ bool Floor::reached()
 
 int Floor::getFloor()
 {
-	//this should help create nodes
-
 	return number;
 }
 
@@ -72,9 +68,5 @@ void Floor::changeFloor(int num)
 
 bool Floor::getStatus()
 {
-	//this is to help the queue, if necessary
-
 	return pending;
 }
-
-
