@@ -96,8 +96,6 @@ void Elevator::goUp(int f)
 	cout << "Going up" << endl;
 	currFloor = f;
 	cout << "Now at floor " << currFloor << endl;
-	//floor++	
-	//wip
 }
 
 void Elevator::goDown(int g)
@@ -105,8 +103,6 @@ void Elevator::goDown(int g)
 	cout << "Going down" << endl;
 	currFloor = g;
 	cout << "Now at floor " << currFloor << endl;
-	//floor--
-	//wip
 }
 
 bool Elevator::openDoors()
@@ -114,7 +110,6 @@ bool Elevator::openDoors()
 	_doorOpen = true;
 	cout << "Doors opened." << endl;
 	return 1;
-	//wip
 }
 
 bool Elevator::closeDoors()
@@ -127,7 +122,6 @@ bool Elevator::closeDoors()
 	cout << "Doors closed" << endl;
 	updateStatus();
 	return 1;
-	//wip
 }
 
 bool Elevator::closeDoors(int num)
@@ -145,16 +139,14 @@ bool Elevator::closeDoors(int num)
 
 void Elevator::updateStatus()
 {
-	status = ~status; //true (operational) -> false (error) OR false -> true
+	status = ~status;
 	if(currWeight >= maxWeight)
 	{
-//		cout << name << endl;
 		cout << "Current weight: " << currWeight << " exceeds maximum allotted weight of : " << maxWeight << endl;
 		cout << "Please wait until the next elevator." << endl;
 	}
 	else
 	{
-//		cout << name << endl;
 		cout << "Current weight: " << currWeight << " out of maximum weight limit: " << maxWeight << endl;
 	}
 }
