@@ -62,11 +62,12 @@ ControlHub::ControlHub(int a, int f)
 		topFloors[i] = i+1;
 	}
 	
-	for(int i=0; i<f; i++) //sets Floor number info
+	for(int i=0; i<f; i++)
 	{
 		myFloorArr[i].changeFloor(i+1);
 	}
-	for(int j=0; j<f; j++)//checks to see if it is named correctly.
+	
+	for(int j=0; j<f; j++)
 	{
 		cout << "Floor " << myFloorArr[j].getFloor() << endl;
 	}
@@ -92,14 +93,16 @@ ControlHub::ControlHub(int a, int f, vector<Elevator> ele)
 		topFloors[i] = i+1;
 	}
 	
-	for(int i=0; i<f; i++) //sets Floor number info
+	for(int i=0; i<f; i++)
 	{
 		myFloorArr[i].changeFloor(i+1);
 	}
-	for(int j=0; j<f; j++)//checks to see if it is named correctly.
+	
+	for(int j=0; j<f; j++)
 	{
 		cout << "Floor " << myFloorArr[j].getFloor() << endl;
 	}
+	
 	myElevator = ele;
 }
 
@@ -112,85 +115,89 @@ ControlHub::~ControlHub()
 void ControlHub::runMe()
 {
 	bool loopMe = true;
-    char next;
-    int inp;
-    int i = 0;
+	char next;
+	int inp;
+	int i = 0;
 	int j = 0;
-    int n = 1;
-    vector<int> inputs2;
-    vector<int> inputs3;
-    vector<int> weight2;
-    vector<int> weight3;
-    updateVectors(inputs2, inputs3, weight2, weight3);
+	int n = 1;
+	vector<int> inputs2;
+	vector<int> inputs3;
+	vector<int> weight2;
+	vector<int> weight3;
+	updateVectors(inputs2, inputs3, weight2, weight3);
     
-    PriorityQueue queue2;
-    PriorityQueue queue3;
+	PriorityQueue queue2;
+	PriorityQueue queue3;
 
-    int a = 1;
-    int call = 0;
-    while(a != 0)
-    {
-    	cout << "Please choose an option: " << endl;
-    	cout << "1. Call elevator" << endl;
-    	cout << "2. Request a floor" << endl;
-    	cout << "3. Proceed through queue" << endl;
-    	cout << "0. End program" << endl;
-    	cin >> a;
+	int a = 1;
+	int call = 0;
+	while(a != 0)
+	{
+    		cout << "Please choose an option: " << endl;
+    		cout << "1. Call elevator" << endl;
+    		cout << "2. Request a floor" << endl;
+    		cout << "3. Proceed through queue" << endl;
+    		cout << "0. End program" << endl;
+    		cin >> a;
 
-    	if(a == 1)
-    	{
-    		cout << "Call elevator to which floor?" << endl;
-    		cin >> call;
-    		inputs.push_back(call);
-    	}
-
-    	if(a == 2)
-    	{
-    		cout << "Please enter requested floor" << endl;
-    		if(cin >> inp)
-    			inputs.push_back(inp);
-    	}
-    	if(a == 3)
-    	{
-    	    getFromFile();
-
-    	    sortVec(inputs); //sorts vector
-    	    sortVec(inputs2);
-    	    sortVec(inputs3);
-
-    	    findMostReqFloor();	//updates priority vector
-
-    	    for(int x = 0; x < inputs2.size(); x++)
-    	    {
-    	    	queue2.enqueue(inputs2[x]);
-    	    	fileVec[inputs2[x]]++;
-    	    }
-    	    for(int x= 0; x < inputs3.size(); x++)
-    	    {
-    	    	queue3.enqueue(inputs2[x]);
-    	    	fileVec[inputs3[x]]++;
-    	    }
-
-    		for (int x = 0; x<inputs.size(); x++)//queues inputs from vector
+    		if(a == 1)
     		{
-    			myQueue.enqueue(inputs[x]);
-    			fileVec[inputs[x]]++;	//update file vector (adds a point to a requested floor)
+    			cout << "Call elevator to which floor?" << endl;
+    			cin >> call;
+    			inputs.push_back(call);
     		}
-    		writeToFile(1);
-    		getFromFile();
 
-    		moveThrough(myElevator[0], myQueue);//elevator begins moving through input queue.
-    		myQueue.display();
-    		moveThrough(myElevator[1], queue2, weight2);
-    		queue2.display();
-    		moveThrough(myElevator[2], queue3, weight3);
-    		queue3.display();
+    		if(a == 2)
+    		{
+    			cout << "Please enter requested floor" << endl;
+    			if(cin >> inp)
+    				inputs.push_back(inp);
+    		}
+		
+    		if(a == 3)
+    		{
+    	    		getFromFile();
+
+    	    		sortVec(inputs);
+    	    		sortVec(inputs2);
+    	    		sortVec(inputs3);
+
+    	    		findMostReqFloor();
+
+    	    		for(int x = 0; x < inputs2.size(); x++)
+    	    		{
+    	    			queue2.enqueue(inputs2[x]);
+    	    			fileVec[inputs2[x]]++;
+    	    		}
+			
+    	    		for(int x= 0; x < inputs3.size(); x++)
+    	    		{
+    	    			queue3.enqueue(inputs2[x]);
+    	    			fileVec[inputs3[x]]++;
+    	    		}
+
+    			for (int x = 0; x<inputs.size(); x++)
+    			{
+    				myQueue.enqueue(inputs[x]);
+    				fileVec[inputs[x]]++;
+    			}
+    			
+			writeToFile(1);
+    			getFromFile();
+
+    			moveThrough(myElevator[0], myQueue);
+    			myQueue.display();
+    			moveThrough(myElevator[1], queue2, weight2);
+    			queue2.display();
+    			moveThrough(myElevator[2], queue3, weight3);
+    			queue3.display();
+    		}
+		
+    		if(a == 0)
+    		{
+    			break;
+    		}
     	}
-    	if(a == 0)
-    	{
-    		break;
-    	}
-    }
 }
 
 void ControlHub::findMostReqFloor()
@@ -199,7 +206,7 @@ void ControlHub::findMostReqFloor()
 	int counter, ele, num1, num2;
 	counter = 0;
 	
-	for (int i = 1; i < fileVec.size(); i++)	//checks if there is data in the file
+	for (int i = 1; i < fileVec.size(); i++)
 	{
 		if (fileVec[i] < 1)
 			counter++;
@@ -207,19 +214,21 @@ void ControlHub::findMostReqFloor()
 			restart = true;
 	}
 	
-	if (restart)	//sets all priority to floor 1 if there is no data in the file
+	if (restart)
 	{
 		for (int i = 0; i < topFloors.size(); i++)
 		{
 			topFloors[i] = 1;
 		}
 	}
+	
 	else 
 	{
 		for (int i = 0; i < topFloors.size(); i++)
 		{
 			topFloors[i] = fileVec.size();
 		}
+		
 		for (int i = 1; i < fileVec.size(); i++)
 		{
 			ele = topFloors.back();
@@ -280,7 +289,7 @@ void ControlHub::moveThrough(Elevator ele, PriorityQueue& queue)
 		cout << "Elevator " << ele.getName() << " arrived at Floor " << temp->data << endl;
 		ele.openDoors();
 
-		if(i == 0) //assumes this is an empty elevator.
+		if(i == 0)
 		{
 			cout << "Passenger(s) boarded: " << ele.getName() << endl;
 			cout << "Please enter passenger(s)'s weight." << endl;
@@ -297,20 +306,24 @@ void ControlHub::moveThrough(Elevator ele, PriorityQueue& queue)
 		{
 			break;
 		}
-		else if(tempNext->data < temp->data) //checks if elevator is going up
+		
+		else if(tempNext->data < temp->data)
 		{
 			ele.goUp(temp->data);
 			myFloorArr[temp->data].addReq();
 		}
-		else if(tempNext->data > temp->data)//checks if elevator is going down.
+		
+		else if(tempNext->data > temp->data)
 		{
 			ele.goDown(temp->data);
 			myFloorArr[temp->data].addReq();
 		}
+		
 		tempNext = tempNext->next;
 		queue.dequeue();
 		i++;
 	}
+	
 	queue.dequeue();
 }
 
@@ -340,26 +353,31 @@ void ControlHub::moveThrough(Elevator ele, PriorityQueue& queue, vector<int> vec
 			ele.updateStatus();
 			ele.closeDoors(0);
 		}
+		
 		else
 		{
 			ele.closeDoors(vec[i]);
 		}
+		
 		temp = temp->next;
 
 		if(temp == NULL)
 		{
 			break;
 		}
+		
 		else if(tempNext->data < temp->data) //checks if elevator is going up
 		{
 			ele.goUp(temp->data);
 			myFloorArr[temp->data].addReq();
 		}
+		
 		else if(tempNext->data > temp->data)//checks if elevator is going down.
 		{
 			ele.goDown(temp->data);
 			myFloorArr[temp->data].addReq();
 		}
+		
 		tempNext = tempNext->next;
 		queue.dequeue();
 		i++;
@@ -384,7 +402,7 @@ void ControlHub::sortVec(vector<int>& vec)
 	}
 }
 
-void ControlHub::getFromFile()	//gets information from data file and inserts them into a vector
+void ControlHub::getFromFile()
 {
 	ifstream fin;
 	fin.open("data.dat");
@@ -415,6 +433,7 @@ void ControlHub::getFromFile()	//gets information from data file and inserts the
 			cout << "Error: File failed to open\n";
 			exit(1);
 		}
+		
 		fin >> next;
 	}
 	while (!fin.eof())
@@ -423,6 +442,7 @@ void ControlHub::getFromFile()	//gets information from data file and inserts the
 		i++;
 		fin >> next;
 	}
+	
 	fin.close();
 }
 
@@ -444,6 +464,7 @@ void ControlHub::writeToFile(int num)	//writes vector to the file
 			fout << 0 << endl;
 		}
 	}
+	
 	else if (num == 1)
 	{
 		for (int i = 0; i < fileVec.size(); i++)
