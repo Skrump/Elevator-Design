@@ -1,8 +1,3 @@
-/*
-Priority queue header file: This priority queue will be the primary data structure
-for the elevator class.
-*/
-
 #pragma once
 
 #include <cstddef>
