@@ -39,5 +39,5 @@ int main()
 
 	ControlHub myHub(3, NUMFLOORS, elevatorVec);
 	myHub.runMe();
-    return 0;
+	return 0;
 }
