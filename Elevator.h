@@ -12,10 +12,10 @@ private:
 	double currWeight;
 	double maxWeight;
 	bool status;
-	double time; //up/down/open/close
-	bool _doorOpen; //open/close
+	double time;
+	bool _doorOpen;
 	int currFloor; 
-	Floor numFloors; //wip
+	Floor numFloors;
 	
 public:
 	Elevator();
