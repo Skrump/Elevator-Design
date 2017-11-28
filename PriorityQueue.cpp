@@ -98,7 +98,7 @@ void PriorityQueue::dequeue() {
  		head = head->next;
  	}
 
- 	delete temp; //delete from queue (signal from Floor::reached() could be used here)
+ 	delete temp;
 }
 
 void PriorityQueue::emplace(int f)
@@ -133,26 +133,3 @@ void PriorityQueue::display()
 		cout << "Queue is now empty" << endl;
 	}
 }
-
-//void PriorityQueue::moveThrough()
-//{
-//	node *temp = new node;
-//	temp = head;
-//	while (temp != NULL)
-//	{
-//		cout << "Elevator arrived at Floor " << temp->data << endl;
-//		cout << "Doors opened" << endl;
-//		cout << "Doors closed" << endl;
-//		temp = temp->next;
-//		if(temp == NULL)
-//		{
-//			break;
-//		}
-//		else
-//		{
-//			cout << "Moving to Floor " << temp->data << endl;
-//		}
-//	}
-//}
-
-
