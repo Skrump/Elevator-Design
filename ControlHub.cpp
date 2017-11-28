@@ -125,47 +125,72 @@ void ControlHub::runMe()
     
     PriorityQueue queue2;
     PriorityQueue queue3;
-	cout << "Please enter the number of the floor(s) you would like to go to: ";
 
-	do{
-		if (cin >> inp)
-			inputs.push_back(inp);
-	}while(cin && cin.peek() != '\n');
-
-    cout << endl;
-    getFromFile();
-
-    sortVec(inputs); //sorts vector
-    sortVec(inputs2);
-    sortVec(inputs3);
-
-    findMostReqFloor();	//updates priority vector
-
-    for(int x = 0; x < inputs2.size(); x++)
+    int a = 1;
+    int call = 0;
+    while(a != 0)
     {
-    	queue2.enqueue(inputs2[x]);
-    	fileVec[inputs2[x]]++;
-    }
-    for(int x= 0; x < inputs3.size(); x++)
-    {
-    	queue3.enqueue(inputs2[x]);
-    	fileVec[inputs3[x]]++;
-    }
+    	cout << "Please choose an option: " << endl;
+    	cout << "1. Call elevator" << endl;
+    	cout << "2. Request a floor" << endl;
+    	cout << "3. Proceed through queue" << endl;
+    	cout << "0. End program" << endl;
+    	cin >> a;
 
-	for (int x = 0; x<inputs.size(); x++)//queues inputs from vector
-	{
-		myQueue.enqueue(inputs[x]);
-		fileVec[inputs[x]]++;	//update file vector (adds a point to a requested floor)
-	}
-	writeToFile(1);
-	getFromFile();
+    	if(a == 1)
+    	{
+    		cout << "Call elevator to which floor?" << endl;
+    		cin >> call;
+    		inputs.push_back(call);
+    	}
 
-	moveThrough(myElevator[0], myQueue);//elevator begins moving through input queue.
-	myQueue.display();
-	moveThrough(myElevator[1], queue2, weight2);
-	queue2.display();
-	moveThrough(myElevator[2], queue3, weight3);
-	queue3.display();
+    	if(a == 2)
+    	{
+    		cout << "Please enter requested floor" << endl;
+    		if(cin >> inp)
+    			inputs.push_back(inp);
+    	}
+    	if(a == 3)
+    	{
+    	    getFromFile();
+
+    	    sortVec(inputs); //sorts vector
+    	    sortVec(inputs2);
+    	    sortVec(inputs3);
+
+    	    findMostReqFloor();	//updates priority vector
+
+    	    for(int x = 0; x < inputs2.size(); x++)
+    	    {
+    	    	queue2.enqueue(inputs2[x]);
+    	    	fileVec[inputs2[x]]++;
+    	    }
+    	    for(int x= 0; x < inputs3.size(); x++)
+    	    {
+    	    	queue3.enqueue(inputs2[x]);
+    	    	fileVec[inputs3[x]]++;
+    	    }
+
+    		for (int x = 0; x<inputs.size(); x++)//queues inputs from vector
+    		{
+    			myQueue.enqueue(inputs[x]);
+    			fileVec[inputs[x]]++;	//update file vector (adds a point to a requested floor)
+    		}
+    		writeToFile(1);
+    		getFromFile();
+
+    		moveThrough(myElevator[0], myQueue);//elevator begins moving through input queue.
+    		myQueue.display();
+    		moveThrough(myElevator[1], queue2, weight2);
+    		queue2.display();
+    		moveThrough(myElevator[2], queue3, weight3);
+    		queue3.display();
+    	}
+    	if(a == 0)
+    	{
+    		break;
+    	}
+    }
 }
 
 void ControlHub::findMostReqFloor()
